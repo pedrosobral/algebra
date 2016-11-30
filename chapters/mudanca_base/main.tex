@@ -1,0 +1,217 @@
+\chapter{Mudança de Base}
+\thispagestyle{empty}
+
+\section{Introdução}
+
+Sejam $V$ um espaço vetorial  e $\beta=\{v_1, v_2,..., v_n \}$ uma base de $V$. Para cada vetor $v \in V$ existem únicos escalares $a_1$, $a_2$,...,$a_n$ tais que
+
+\begin{align*}
+v&=a_1v_1+ a_2v_2+ ...+a_nv_n .
+\end{align*}
+
+Os escalares $a_1$, $a_2$,...,$a_n$ são chamados de \textit{coordenadas} de $v$ em relação à base $\beta$. Denotamos, $$[v]_{\beta}=\left[ \begin{array}{c}a_1 \\a_2 \\ \vdots \\ a_n\end{array}\right ].$$
+
+\subsection{Exemplos}
+
+\begin{enumerate}
+\item Considere $\beta=\{(1,0), (0,1)\}$ a base canônica do $\mathbb{R}^2$ . Observe que o vetor $(2,3) \in \mathbb{R}^2$ pode ser escrito como uma combinar linear dos vetores da base canônica do seguinte modo
+\begin{align*}
+(2,3)&=2(1,0)+3(0,1).
+\end{align*}
+
+Logo, $[(2,3)]_{\beta}=\left[ \begin{array}{c}2 \\3\end{array}\right ].$
+
+De um modo geral, dado um vetor  $(x,y)$ qualquer em $\mathbb{R}^2$, sempre podemos escrever
+\begin{align*}
+(x,y)&=x(1,0)+y(0,1).
+\end{align*}\
+
+Assim as coordenadas de $(x,y)$ em relação à base canônica do $\mathbb{R}^2$ são os próprios escalares $x$ e $y$. Isto é,
+$[(x,y)]_{\beta}=\left[ \begin{array}{c}x\\y\end{array}\right ]$. Porém, em relação à outras bases do $\mathbb{R}^2$ as coordenadas de um vetor genérico $(x,y)$ são, em geral, diferentes dos escalares $x$ e $y$.  Por exemplo, considere a base ${\beta} ' = \{ (1,1), (-1,1)\}$  de $\mathbb{R}^2$ . Em relação à esta base o  vetor $(2,3)$ é escrito da seguinte maneira:
+\begin{align*}
+(2,3)&=\dfrac{5}{2}(1,1)+\dfrac{1}{2}(-1,1).
+\end{align*}\
+Daí, as coordendas de $(2,3)$ em relação à base ${\beta} '$ são $\dfrac{5}{2}$ e $\dfrac{1}{2}$. Ou seja,$$[(2,3)]_{\beta'}=\left[ \begin{array}{c}\dfrac{5}{2} \\\dfrac{1}{2}\end{array}\right ].$$
+
+\subsection{Observação.} A ordem em que os elementos $v_1, v_2,..., v_n$ de uma base de um espaço vetorial $V$ estão dispostos, nessa base, influi na construção da matriz de coordenadas de um dado vetor $v$, em relação a essa base. Por exemplo, se considerarmos em $\mathbb{R}^2$, as bases $\beta=\{(1,0), (0,1)\}$ e ${\beta}'=\{(0,1), (1,0)\}$, então as coordenadas do vetor $(4,5)$ em relação a essas bases, são dadas por
+$[(4,5)]_{\beta}=\left[ \begin{array}{c}4 \\5\end{array}\right ]$ e $[(4,5)]_{\beta '}=\left[ \begin{array}{c}5 \\4\end{array}\right ].$
+
+Por essa razão, deste ponto em diante, dada uma base  $\beta=\{v_1, v_2,..., v_n \}$ de um espaço vetorial  $V$ iremos considerar que a mesma está ordenada na ordem em que seus elementos aparecem.
+
+
+\end{enumerate}
+
+
+\section{Mudança de Base}
+
+
+%\textbf{Definição (Mudança de base).}
+Seja  $V$  um espaço vetorial de dimensão finita sobre o conjunto dos números reais. Sejam $\alpha=\{ u_1, u_2, ...,u_n\}$ e $\beta=\{v_1, v_2, ...,v_n\}$ duas bases de $V$. Então existem escalares $x_1, x_2, ...,x_n$ e $y_1, y_2,...,y_n$ tais que
+\begin{align}
+u&=x_1u_1+ x_2u_2+ ...+x_nu_n
+\end{align}\label{eq1}
+e
+\begin{align}
+u&=y_1v_1+ y_2v_2+ ...+y_nv_n.
+\end{align}\label{eq2}
+
+
+Dessa forma, $[u]_{\alpha}=\left[ \begin{array}{c}x_1 \\x_2 \\ \vdots \\ x_n\end{array}\right ]$ e $[u]_{\beta}=\left[ \begin{array}{c}y_1 \\y_2 \\ \vdots \\ y_n\end{array}\right ]$.
+
+
+Agora, como cada vetor $v_j$, $j=1,2,...,n$, pertence a $V$ e $\alpha$ é uma base de $V$ podemos escrever $v_j$ como combinação linear de dos vetores $u_1, u_2, ...,u_n$ da seguinte maneira:
+
+\begin{align}
+v_1&=a_{11}u_1+ a_{21}u_2+ ...+a_{n1}u_n  \nonumber \\
+v_2&=a_{12}u_1+ a_{22}u_2+ ...+a_{n2}u_n \nonumber \\
+\vdots&=\; \;\;  \; \;\; \; \;\;\; \;\;\; \;\; \vdots \\
+v_n&=a_{1n}u_1+ a_{2n}u_2+ ...+a_{nn}u_n \nonumber
+\end{align}\label{eq3}
+
+Substituindo a equação (3)  em (2), obtemos
+
+\begin{align}
+u&=y_1(a_{11}u_1+ a_{21}u_2+ ...+a_{n1}u_n )+ y_2(a_{12}u_1+ a_{22}u_2+ \nonumber \\
+    &+ ...+a_{n2}u_n )+ ...+y_n(a_{1n}u_1+ a_{2n}u_2+ ...+a_{nn}u_n).
+\end{align}\label{eq4}
+
+Desenvolvendo os produtos e arrumando a equação  em função de $u_1, u_2,..., u_n$ obtemos:
+\begin{align}
+u&=(a_{11}y_1+a_{12}y_2+...+a_{1n}y_n)u_1+(a_{21}y_1+a_{22}y_2+...+a_{2n}y_n)u_2+ \nonumber\\
+&+...+ (a_{n1}y_1+a_{n2}y_2+...+a_{nn}y_n)u_n.
+\end{align}\label{eq5}
+
+Da igualdade entre as equações (1) e (5), devido a unicidade das coordenadas $x_1, x_2, ...,x_n$, obtemos
+
+
+\begin{align}
+x_1&=a_{11}y_1+a_{12}y_2+...+a_{1n}y_n  \nonumber \\
+x_2&=a_{21}y_1+a_{22}y_2+...+a_{2n}y_n \nonumber \\
+\vdots&=\; \;\;  \; \;\; \; \;\;\; \;\;\; \;\; \vdots \\
+x_n&=a_{n1}y_1+a_{n2}y_2+...+a_{nn}y_n. \nonumber
+\end{align}\label{eq6}
+
+Usando a notação matricial, obtemos
+
+$$\left[ \begin{array}{c}x_1 \\x_2 \\ \vdots \\ x_n\end{array}\right ]=\left[ \begin{array}{cccc}a_{11}& a_{12} & \hdots & a_{1n}\\a_{21}& a_{22} & \hdots & a_{2n} \\ \vdots & \vdots& \ddots& \vdots\\  a_{n1}& a_{n2} & \hdots & a_{nn}\end{array}\right ] \left[ \begin{array}{c}y_1 \\y_2 \\ \vdots \\ y_n\end{array}\right ].$$
+
+
+Denotando  $$[I]_{\alpha}^{\beta}=\left[ \begin{array}{cccc}a_{11}& a_{12} & \hdots & a_{1n}\\a_{21}& a_{22} & \hdots & a_{2n} \\ \vdots & \vdots& \ddots& \vdots\\  a_{n1}& a_{n2} & \hdots & a_{nn}\end{array}\right ],$$ obtemos $$[u]_{\alpha}= [I]_{\alpha}^{\beta}[v]_{\beta}.$$
+
+
+\vspace{1cm}
+\textbf{Definição (Mudança de base).} Sejam  $V$  um espaço vetorial de dimensão finita sobre o conjunto dos números reais, $\alpha=\{ u_1, u_2, ...,u_n\}$ e $\beta=\{v_1, v_2, ...,v_n\}$ duas bases de $V$. A matriz $[I]_{\alpha}^{\beta}$ é chamada  a \textit{matriz mudança de base} da base $\beta$ para a base $\alpha$.
+
+\vspace{1cm}
+\textbf{Observações}
+\begin{enumerate}
+ \item A $j-$ésima coluna da  matriz $[I]_{\alpha}^{\beta}$ é  formada pelas coordenadas do vetor $v_j$, da base $\beta$,  em relação à base $\alpha$. Isto é,
+
+$$[I]_{\alpha}^{\beta}=\left[ [v_1]_{\alpha}, [v_2]_{\alpha} ,...,[v_n]_{\alpha}    \right].$$
+
+\item  A matriz $[I]_{\alpha}^{\beta}$  é invertível e a sua inversa é matriz $[I]_{\beta}^{\alpha}$ . Isto é.
+$$\left( [I]_{\alpha}^{\beta} \right)^{-1}=[I]_{\beta}^{\alpha}.$$
+\end{enumerate}
+
+
+\subsection{Exemplos}
+
+\begin{enumerate}
+
+
+\item Considere $\alpha=\{ (1,0), (0,1)\}$ e $\beta=\{(1,1), (-1,1) \}$ duas bases de $\mathbb{R}^2$. Note que
+\begin{align*}
+(1,1)&=1(1,0)+1(0,1)\\
+(-1,1)&=-1(1,0) + 1(0,1).
+\end{align*}
+
+Daí, $[(1,1)]_{\alpha}=\left[\begin{array}{c}1\\1 \end{array}\right]$ e $[(-1,1)]_{\alpha}=\left[\begin{array}{c}-1\\1 \end{array}\right]$.
+
+Logo,
+$$[I]_{\alpha}^{\beta}=\left[\begin{array}{cc}1&-1\\1&1 \end{array}\right].$$
+
+Por outro lado temos
+\begin{align*}
+(1,0)&=\dfrac{1}{2}(1,1)-\dfrac{1}{2}(-1,1)\\
+(0,1)&=\dfrac{1}{2}(1,1) + \dfrac{1}{2}(-1,1).
+\end{align*}
+
+Assim,  $[(1,0)]_{\beta}=\left[\begin{array}{c}\dfrac{1}{2}\\-\dfrac{1}{2} \end{array}\right]$ e $[(0,1)]_{\beta}=\left[\begin{array}{c}\dfrac{1}{2}\\\dfrac{1}{2} \end{array}\right]$.
+
+Logo,
+$$[I]_{\beta}^{\alpha}=\left[\begin{array}{cc}\dfrac{1}{2}&\dfrac{1}{2}\\-\dfrac{1}{2}&\dfrac{1}{2}\end{array}\right].$$
+
+
+Note que $[I]_{\alpha}^{\beta}[I]_{\beta}^{\alpha}=\left[\begin{array}{cc}1&-1\\1&1 \end{array}\right]\left[\begin{array}{cc}\dfrac{1}{2}&\dfrac{1}{2}\\-\dfrac{1}{2}&\dfrac{1}{2}\end{array}\right]=\left[\begin{array}{cc}1&0\\0&1 \end{array}\right].$ Isto é, as matrizes $[I]_{\alpha}^{\beta}$ e $[I]_{\beta}^{\alpha}$ são inversíveis, sendo uma a inversa da outra.
+
+
+\item Sejam $V$ um espaço vetorial  e $\alpha=\{ u, v, w, t\}$ e $\beta=\{u, u-v, v+w+t, v-t\}$ bases de $V$. Determine $[I]_{\alpha}^{\beta}$ e $[I]_{\beta}^{\alpha}$.
+
+\textit{Resolução.} Para determinarmos $[I]_{\alpha}^{\beta}$ precisamos escrever cada um dos vetores de   ${\beta}$ como combinação linear dos vetores de ${\alpha}$.
+Sejam
+\begin{align}
+v_1&=u  \nonumber\\
+v_2&=u-v \\
+v_3&=v+w+t \nonumber \\
+v_4&=v-t.\nonumber
+\end{align}
+
+ Dessa forma,
+
+\begin{align*}
+v_1&=1u+0v+0w+0t \\
+v_2&=1u+(-1)v+0w+0t \\
+v_3&=0u+1v+1w+1t \\
+v_4&=0u+1v+0w+(-1)t. \\
+\end{align*}
+
+De onde obtemos,
+
+$[v_1]_{\alpha}=\left[ \begin{array}{c} 1\\ 0\\ 0\\ 0\end{array}\right ]$, $[v_2]_{\alpha}=\left[ \begin{array}{c} 1\\ -1\\ 0\\ 0\end{array}\right ]$, $[v_3]_{\alpha}=\left[ \begin{array}{c} 0\\ 1\\ 1\\ 1\end{array}\right ]$ e $[v_4]_{\alpha}=\left[ \begin{array}{c} 0\\ 1\\ 0\\ -1\end{array}\right ]$.
+
+ Logo,
+
+$$[I]_{\alpha}^{\beta}= [v_1]_{\alpha}=\left[ \begin{array}{cccc} 1& 1 &0 &0\\ 0&-1&1&1\\ 0&0&1&0\\ 0&0&1&-1\end{array}\right ].$$
+
+
+Para obtermos  $[I]_{\beta}^{\alpha}$ precisamos escrever os vetores de $\alpha$ como combinação linear dos vetores de $\beta$. Para isso, basta resolvermos o sistema (6) em função de $v_1$, $v_2$, $v_3$ e $v_4$. Feito isso, obtemos
+\begin{align*}
+u&=v_1  \nonumber\\
+v&=v_1-v_2 \\
+w&=-2v_1+2v_2+v_3+v_4 \nonumber \\
+t&=v_1-v_2-v_4.\nonumber
+\end{align*}
+
+Daí obtemos
+
+$[u]_{\beta}=\left[ \begin{array}{c} 1\\ 0\\ 0\\ 0\end{array}\right ]$, $[v]_{\beta}=\left[ \begin{array}{c} 1\\ -1\\ 0\\ 0\end{array}\right ]$, $[w]_{\beta}=\left[ \begin{array}{c} -2\\ 2\\ 1\\ 1\end{array}\right ]$ e $[t]_{\beta}=\left[ \begin{array}{c} 1\\ -1\\ 0\\ -1\end{array}\right ]$.
+
+ Logo,
+
+$$[I]_{\beta}^{\alpha}= \left[ \begin{array}{cccc} 1& 1 &-2 &1\\ 0&-1&2&-1\\ 0&0&1&0\\ 0&0&1&-1\end{array}\right ].$$
+
+Outra maneira de calcular $[I]_{\beta}^{\alpha}$ é calcular $\left( [I]_{\alpha}^{\beta} \right)^{-1}$.
+
+\end{enumerate}
+
+\section{Exercícios Propostos}
+\begin{enumerate}
+\item Sejam $\alpha=\{ (1,0), (0,1)\}$, $\beta=\{ (-1,1), (1,1)\}$  e $\gamma=\{ (\sqrt{3},1), ((\sqrt{3},-1)\}$.
+\begin{enumerate}[label=(\alph*)]
+\item Determine a matriz mudança de base da base $\beta$ para a base $\alpha$, $[I]_{\alpha}^{\beta}$.
+\item Determine a matriz mudança de base da base $\alpha$ para a base $\beta$, $[I]_{\beta}^{\alpha}$.
+\item Determine  $[I]_{\gamma}^{\alpha}$ e $[I]_{\alpha}^{\gamma}$.
+\item Calcule as coordenadas de $v=(3,-2)$ em relação a cada uma das bases $\alpha$, $\beta$ e $\gamma$.
+\end{enumerate}
+\item Dadas duas bases $\alpha$ e $\beta$ de $\mathbb{R}^3$ tais que  $[I]_{\alpha}^{\beta}=\left[ \begin{array}{ccc} 1& 1 &0\\ 0&-1&1\\ 1&0&-1\end{array}\right ]$.
+\begin{enumerate}[label=(\alph*)]
+\item Calcule $[v]_{\alpha}$ sabendo-se que  $[v]_{\beta}=\left[ \begin{array}{c} -1\\ 2\\ 3\end{array}\right ]$.
+\item Calcule $[v]_{\beta}$ sabendo-se que  $[v]_{\alpha}=\left[ \begin{array}{c} -1\\ 1\\ 2\end{array}\right ]$.
+\end{enumerate}
+
+\item Seja  $\alpha$ a base canônica do $\mathbb{R}^2$ e  seja $\beta$ a base obtida da base $\alpha$ pela rotação de um ângulo $-\dfrac{\pi}{3}$. Ache $[I]_{\alpha}^{\beta}$ e $[I]_{\beta}^{\alpha}$.
+
+\item Seja $\alpha = \{ v_1, v_2, ..., v_n\}$ uma base de um espaço vetorial $V$. Mostre  que  $[I]_{\alpha}^{\alpha}= I_n$, onde $I_n$ é a matriz identidade de ordem $n$.
+
+
+\end{enumerate}

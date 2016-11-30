@@ -1,0 +1,230 @@
+\chapter{Base e Dimensão}
+\thispagestyle{empty}
+
+
+\section{Introdução}
+
+Um espaço vetorial possui, em geral, infinitos vetores. Contudo, já sabemos que alguns espaços vetoriais podem ser gerados a partir de um número finito de seus elementos, através de combinações lineares realizadas com os mesmos. Esse resultado é muito interessante no sentido de que podemos  construir todo um espaço vetorial usando apenas alguns  de seus elementos.  Nessa seção, veremos que conjuntos de geradores que são  linearmente independentes tem essa propriedade. Por exemplo, o conjunto $\{ (1,0), (0,1)\}$  é um conjunto LI de geradores do $\mathbb{R}^2$.  Conjuntos dessa natureza serão chamados de bases e são o tema central da seção.
+ \textbf{Atenção.} \textit{Estas notas de aulas tem como objetivo servir de guia  aos alunos que cursam a disciplina álgebra linear, nas turmas sob minha responsabilidade, dos cursos de engenharia da UNIVASF. O uso das mesmas  não dispensa  a leitura  dos livros didáticos indicados nas referências bibliográficas da disciplina, bem como a resolução de exercícios propostos nos mesmos}.
+
+\section{Base}
+
+
+\textbf{Definição.} Sejam $V$ um espaço vetorial sobre um corpo $\mathbb{K}$ e  $\beta=\{v_1, v_2,..., v_n\}$  um conjunto de vetores não nulos de $V$.  Dizemos que o conjunto $\beta$ é uma base de $V$ se:
+
+
+
+
+\begin{enumerate}[label=(\roman*)]
+\item   $\{v_1, v_2,..., v_n\}$ é  LI
+\item $\{v_1, v_2,..., v_n\}$  gera $V$. Ou seja, $$ V=[v_1, v_2,..., v_n].$$
+
+\end{enumerate}
+
+
+
+
+\vspace{0.3cm}
+De maneira resumida, dizemos que um subconjunto  não-vazio $\beta$ de vetores de um espaço vetorial  $V$  é uma base de $V$ se  $\beta$ é LI e gera $V$.
+
+\vspace{0.3cm}
+\textbf{Observações.}
+\begin{enumerate}
+\item Prova-se que todo espaço vetorial $V\neq \emptyset$ possui uma base. Além disso, se $V$ possui um conjunto gerador com um número finito de elementos diz-se que $V$ é um espaço \textit{finitamente gerado}. Nesse caso, qualquer base de $V$ terá um número finito de elementos.
+
+\item Se $V$ não for um espaço finitamente gerado, então qualquer base de $V$  possui infinitos elementos.  Isso acontece, por exemplo, com o espaço ${F}(\mathbb{X},\mathbb{R})$ das  funções reais definidas em $\mathbb{X} \subset \mathbb{R}$.
+\end{enumerate}
+
+\section{Exemplos}
+
+\begin{enumerate}
+\item  O subconjunto  $\beta=\{e_1, e_2 \}$  de vetores de $\mathbb{R}^2$,  tal que  $e_1=(1,0)$ e $e_2=(0,1)$,  é uma base do  $\mathbb{R}^2$;
+
+O subconjunto  $\beta=\{e_1, e_2 , e_3\}$  de vetores de $\mathbb{R}^3$, tal que  $e_1=(1,0,0)$, $e_2=(0,1,0)$ e $(0,0,1)$,  é uma base do  $\mathbb{R}^3$. De um modo geral, o conjunto   $$\beta=\{e_1, e_2 ,..., e_n\}$$ é uma base do  $\mathbb{R}^n$.
+Tal base é conhecida como \textit{base canônica} do $\mathbb{R}^n$.
+
+\item   Considere o espaço vetorial  $\mathbb{P}_3$ dos polinômios de grau menor  ou igual a 3 sobre $\mathbb{R}$. O subconjunto de $\mathbb{P}_3$ formado pelos  polinômios $$\beta= \{1, t, t^2, t^3\}$$  é uma  base de $\mathbb{P}_3$.  De um modo geral, o conjunto $$\{1, t, t^2,..., t^n\}$$  é uma base do espaço vetorial real $\mathbb{P}_n$. Esta base é chamada de  \textit{base canônica} do $\mathbb{P}_n$.
+
+\item O subconjunto $$\left\{ \begin{bmatrix} 1 & 0 \\ 0 & 0\end{bmatrix}, \begin{bmatrix} 0 & 1\\ 0 & 0\end{bmatrix},\begin{bmatrix}0 & 0 \\ 1 & 0 \end{bmatrix},  \begin{bmatrix}0 & 0 \\ 0 & 1 \end{bmatrix} \right\}$$  é uma base para o espaço vetorial das matrizes quadradas de ordem dois,  $\mathbb{M}(2,2)$. Esta é a base canônica de $\mathbb{M}(2,2)$.
+
+\end{enumerate}
+
+
+\section{Exercícios resolvidos}
+
+\begin{enumerate}
+	\item Mostre que o subconjunto  $\beta=\{(1,1,0), (1,-1,0), (0,0,2)\}$ é uma base do  $\mathbb{R}^3$.
+
+
+
+	\item   Mostre que o conjunto $$\beta= \{1, t-1, t^2+t, t^3-t+1\}$$ é uma base  $\mathbb{P}_3$, o espaço dos polinômios de grau menor  ou igual a 3 sobre $\mathbb{R}$.
+
+	\item Mostre que o conjunto $$\left\{ \begin{bmatrix} 1 & 2 \\ 0 & 0\end{bmatrix}, \begin{bmatrix} 1 &0 \\ -1 & 0\end{bmatrix},\begin{bmatrix}0 & 0 \\ 2 & -1 \end{bmatrix},  \begin{bmatrix}0 & 2 \\ 0 & 1 \end{bmatrix} \right\}$$  é uma base para o espaço vetorial das matrizes quadradas de ordem dois,  $\mathbb{M}(2,2)$.
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Resultados Importantes}
+
+
+Dado um conjunto de geradores de um espaço vetorial $V$, sempre podemos extrair  do mesmo uma base de  $V$. Além disso,  se $V$ é um espaço vetorial  gerado por um conjunto finito de $n$ vetores, então quaisquer subconjunto de $V$ com mais de $n$ elementos é, necessariamente,  um conjunto LD.  Essas duas afirmações são apresentadas nos próximos teoremas.
+\vspace{0.3cm}
+
+\textit{\textbf{Teorema 1.}  Sejam  $\{v_1, v_2,..., v_n\}$    vetores não nulos que geram um espaço vetorial $V$. Então dentre estes vetores podemos extrair uma base de $V$.}
+
+\vspace{0.3cm}
+
+\textit{\textbf{Teorema 2.} Sejal $V$  um espaço vetorial finitamente gerado pelo  conjunto  de vetores  $\{v_1, v_2,..., v_n\}$.  Então, qualquer conjunto com mais de $n$ vetores é necessariamente LD (e, portanto qualquer conjunto LI tem no máximo n vetores).}
+
+\vspace{0.3cm}
+
+\textit{\textbf{Corolário.} Qualquer base de um espaço vetorial finitamente gerado tem sempre o mesmo número de elementos. }
+
+\vspace{0.3cm}
+
+O fato do número de elementos de uma base de um  espaço vetorial $V$ ser invariante  motiva mais uma definição.: a d\textit{imensão do espaço}. A dimensão de um espaço vetorial, que será definida a seguir, desempenha uma papel importante no estudo dos espaços vetoriais.
+\vspace{0.3cm}
+
+\section{Dimensão}
+\textbf{Definição.} Seja $V$ um espaço vetorial sobre um corpo $\mathbb{K}$. Se $V$ admite uma base finita, então chamamos de \textit{dimensão de $V$} ao número de elementos de tal base. Caso contrário dizemos que a dimensão de $V$ é infinita.   Denotaremos a dimensão de um espaço  vetorial $V$ por $dim (V)$.
+
+
+\section{Exemplos}
+\begin{enumerate}
+\item $dim(\mathbb{R}^n)=n$. Em particular,  $dim(\mathbb{R}^2)=2$  e  $dim(\mathbb{R}^3)=3$.
+\item  $dim(\mathbb{P}_n)=n+1$.
+\item  $dim(\mathbb{M}(m,n)=m\times n$.
+\item  $dim\mathbb ({F}(\mathbb{X},\mathbb{R}))=\infty $.
+\end{enumerate}
+
+\textit{\textbf{Teorema 3.} Qualquer conjunto de vetores LI de um espaço vetorial $V$ de dimensão finita pode ser completado de modo a formar uma base de $V$.}
+
+\vspace{0.3cm}
+
+\textit{\textbf{Corolário.} Se $dimV=n$, então  qualquer conjunto de $n$ vetores LI  de $V$ formará uma base de $V$.}
+
+\vspace{0.3cm}
+
+A importância desse corolário está no fato de que se você souber que a dimensão de um espaço vetorial $V$ é 2, por exemplo, e encontrar um conjunto de dois vetores LI, então você pode afirmar que ele  é uma base de $V$.
+
+
+\section{Coordenadas}
+
+\textit{\textbf{Teorema 4.} Seja $V$ um espaço vetorial sobre um corpo $K$, finitamente gerado e tal que $dim(V) \geq 1$. Então, um conjunto não-vazio $\beta$  de $V$ é uma base de $V$ se, e somente se, cada elemento de $V$ se  escreve de maneira única como uma combinação linear dos vetores de $\beta$.}
+
+\vspace{0.3cm}
+
+O \textit{\textbf{Teorema 4}} estabelece que dada uma base  $\beta=\{v_1, v_2,...,v_n\}$  de $V$, na qual foi  fixada uma ordem nos seus elementos; e dado um vetor $v \in V$, existem escalares $a_1, a_2,..., a_n$ únicos, tais que, $$v=a_1v_1+a_2v_2+...+a_nv_n$$.
+Os escalares $a_1, a_2,..., a_n$  são chamados de as \textit{coordenadas} do vetor $v$ em relação à base $\beta$ de $V$. Denotamos $$[v]_{\beta}=\begin{bmatrix} a_1\\ a_2\\ \vdots \\a_n \end{bmatrix}.$$
+
+As coordenadas de um vetor $v \in V$ depende sempre da base $\beta$ escolhida e da ordem de seus elementos.
+
+
+\section{Exercício Resolvido}
+O exercício seguinte estabelece que um espaço vetorial $V$ é uma soma direta dos subespaços gerados por cada um dos vetores que compõem essa base.
+
+\begin{enumerate}
+\item \textit{Dado um subconjunto não-vazio $\beta=\{v_1, v_2,..., v_n\}$ de  vetores de um espaço vetorial $V$, mostre que   $\beta$ é uma base de $V$ se, e somente se,  $$V=[v_1]\oplus [v_2]\oplus...\oplus[v_n].$$}
+
+\textit{\textbf{Resolução.}} Suponha que $\beta=\{v_1, v_2,..., v_n\}$ seja uma base de $V$ e sejam $V_1=[v_1], V_2= [v_2], ...,V_n=[v_n]$. Vamos mostrar que $$V_i \cap V_j=\{0\}, \; \text{para todo $i \neq j$};$$  e que $$ V=V_1 +V_2 + ...+ V_n.$$ Primeiro, suponha que $ v \in V_i \cap V_j$. Logo, $v \in V_i$ e $ v \in V_j$. Daí, existem escalares  $a_1$ e $a_2$ tais que  $$ v=a_1v_i \; \; \text{e} \; \; v=a_2v_j.$$ Assim, $$ a_1v_i=a_2v_j.$$  Mas, se $a_1$ e $a_2$ forem, simultaneamente, diferentes de zero, então teríamos
+$$ v_i=\dfrac{a_2}{a_1}v_j \; \; \text{e} \; \;  v_j=\dfrac{a_1}{a_2}v_i.$$  Mas, isso não pode ocorrer porque $v_i$ e $v_j$ são vetores LI, já que pertencem a uma base de $V$. Logo, $a_1=0$ e $a_2=0$. Isto é, $v=0$ e assim, $V_i \cap V_j=\{0\}$. Como $V_i$ e $V_j$ foram tomados arbitrariamente, então o resultado vale para para todo $i, j=1,2,...,n$.  Agora seja $v \in V$. Como $\beta=\{v_1, v_2,..., v_n\}$ é uma base de $V$, então existem escalares $a_1, a_2,...,a_n $ tais que $$v=a_1v_1+a_2 v_2+...+a_n v_n.$$  Isso mostra que  $$V=V_1+V_2+...+V_n.$$ Portanto, $$V=V_1\oplus V_2\oplus...\oplus V_n.$$
+
+Por outro lado, suponha que $$V=V_1\oplus V_2\oplus...\oplus V_n.$$ Vamos mostrar que $\beta=\{v_1, v_2,..., v_n\}$  é uma base de $V$. Para isso, precisamos mostrar que $\beta$ gera $V$ e é LI. Como, por hipótese, $V=V_1\oplus V_2\oplus...\oplus V_n$, então $V=V_1+V_2+...+V_n.$ Logo, qualquer vetor $v \in V$ se escreve, do seguinte modo:$$v=a_1v_1+a_2 v_2+...+a_n v_n $$  para alguma sequência de escalares $a_1, a_2,...,a_n $. Como $v$ é arbitrário, segue que $\beta$ gera $V$. Agora, suponha que $\beta=\{v_1, v_2,..., v_n\}$  seja LD. Então existe, $v_j \in \beta$ que é combinação linear dos demais vetores de $\beta$. Digamos, sem perda de generalidade, que $ v_j=av_i$ para algum $i=1,2,..n$ e $i \neq j$. Então, temos que  $av_i \in V_j$ e $ av_i \in V_i$. Logo, $ av_i \in  V_j \cap V_i$. Mas, isso contradiz o fato de que $  V_i \cap V_j = \{0\}$ ( V é soma direta de $V_1, V_2, ..., V_j$).  Portanto, $ \beta$ é um conjunto LI. $\Box$
+\end{enumerate}
+
+
+
+
+\section{Exercícios Propostos}
+
+
+\begin{enumerate}
+\item Escreva uma base para o espaço das matrizes de ordem $2\times 3$ com entradas reais. Qual seria uma base para o espaço das matrizes quadradas de ordem $n$?
+
+\item Mostre que o conjunto $\{ 1-t^3, (1-t)^2, 1-t , 1\}$ é uma base de $\mathbb{P}_3$.
+\item Dado o subespaço $W$ de $\mathbb{M}(2,2)$ que é gerado pelo conjunto $$\left\{ \begin{bmatrix} 1 & -5 \\ -4 & 2\end{bmatrix}, \begin{bmatrix} 1 & 1\\ -1 & 5\end{bmatrix},\begin{bmatrix}2 & -4 \\ 0 & 7 \end{bmatrix},  \begin{bmatrix}1 & -7 \\-5 & 1 \end{bmatrix} \right\}.$$  Determine uma base de $W$ e a sua dimensão.
+
+\item Considere o subespaço do $\mathbb{R}^4$ gerado pelos vetores $v_1=(1,-1,0,0)$, $v_2=(0,0,1,1)$, $v_3=(-2,2,1,1)$ e $v_4=(1,0,0,0)$.
+\begin{enumerate}[label=(\alph*)]
+\item 	O vetor $(1, -3,1, 1) \in [v_1, v_2, v_3, v_4]?$
+\item Determine uma base de $[v_1, v_2, v_3, v_4]$.
+\item  $[v_1, v_2, v_3, v_4]=\mathbb{R}^4$. Por quê?
+\end{enumerate}
+
+\item Considere o subespaço do $\mathbb{R}^3$ gerado pelos vetores $v_1=(1,1,0)$, $v_2=(0,-1,1)$ e $v_3=(1,1,1)$.  Verifique se $[v_1, v_2, v_3]=\mathbb{R}^3$.
+
+\item Sejam $U= \{ (x, y, z, t) \} \in \mathbb{R}^4; x+y=0 \; \text{ e } \; z-t=0 $ e $W= \{ (x, y, z, t) \} \in \mathbb{R}^4; 2x+y-t=0 \; \text{ e } \; z=0 $ dois subespaços de $\mathbb{R}^4$.
+\begin{enumerate}[label=(\alph*)]
+\item 	Determine $ U \cap W$;
+\item Determine $ U + W$;
+\item Verifique se $\mathbb{R}^4 =U \oplus W$.
+\end{enumerate}
+
+
+
+
+\item 	Dados os vetores $u = (2,-1,4,0)$, $v = (1,-2,2,3)$  e $w=(4,-5,8,6)$, faça o que se pede  a seguir.
+\begin{enumerate}[label=(\alph*)]
+\item Mostre que os vetores $u$, $v$ e $w$ são vetores  LD;
+\item Mostre que dois vetores quaisquer constituem uma base para o subespaço $S=[u, v, w]$;
+\item Seja o subespaço de $\mathbb{R}^4$  gerado pelos vetores $(0,1,0,0)$ e $(0,0,0,1)$.  Determine o subespaço $ S \cap T$.
+\item Quais são as dimensões dos subespaços $S$, $T$, $S \cap T$ e $S+T$?
+\item Verifique se  $\mathbb{R}^4 =S \oplus T$.
+\end{enumerate}
+
+
+\item
+\begin{enumerate}[label=(\alph*)]
+\item Mostre que os conjuntos $\alpha= \{(1,0), (0,1) \}$, $\beta= \{(i,0), (2,-3) \}$ e $\gamma= \{(i,i), (-1,2i) \}$ são bases do espaço vetorial $\mathbb{C}^2$ sobre $\mathbb{C}$.
+\item Mostre que o conjunto $\delta= \{(1,0), (i,0), (0,1), (0,i) \}$ é uma  bases do espaço vetorial $\mathbb{C}^2$ sobre $\mathbb{R}$.
+\end{enumerate}
+
+
+
+\item	Qual é a dimensão do seguinte   subespaço de $\mathbb{R}^4$
+ $$S = [(1,1,-2,4), (1,1,-1,2),(1,4,-4,8)]?$$
+
+
+
+\item Seja $W$ o subespaço de $\mathbb{M}(2,2)$ definido por $$\left\{ \begin{bmatrix}2a & a+2b \\ 0 & a-b \end{bmatrix}; a,b \in \mathbb{R} \right\}.$$
+\begin{enumerate}[label=(\alph*)]
+\item Determine uma base de $W$;
+\item  Determine $dim(W)$;
+\item Determine um subespaço $S$ de $\mathbb{M}(2,2)$ tal que $\mathbb{M}(2,2)= S \oplus W$.
+\end{enumerate}
+
+
+\item  Considere o sistema linear
+
+%\begin{align}
+$ (*) \left\{ \begin{array}{rr}
+2x+4y-6z&=a\\
+x-y+4z&=b \\
+6y-14z&=c .
+%\end{align}
+\end{array}\right.$
+
+
+Seja $S=\{ (x, y, z) \in\mathbb{R}^3; (x,y,z)\; \text{é solução  de (*)} \}$. Isto é, $S$ é o conjunto-solução do sistema linear (*).
+\begin{enumerate}[label=(\alph*)]
+\item Que condições devemos impor para $a$, $b$ e $c$ para que o sistema linear seja um subespaço vetorial de  $\mathbb{R}^3$?
+\item Nas condições determinadas no ítem (a), determine uma base para $S$.
+\item Verifique que  $dim(S)$ é igual ao grau de liberdade do sistema (*).
+\end{enumerate}
+
+
+
+
+
+\end{enumerate}

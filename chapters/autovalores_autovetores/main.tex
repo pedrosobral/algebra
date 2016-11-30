@@ -1,0 +1,594 @@
+\chapter{Autovalores e Autovetores}
+\thispagestyle{empty}
+
+\section{Introdução}
+
+Uma transformação linear $T: V \rightarrow V$, ou seja $T$ é uma transformação linear do espaço vetorial $V$ nele mesmo,  é comumente chamada de \textit{operador linear}. Nesta seção estamos interessados em descobrir quais vetores $v$ do espaço vetorial $V$ permanecem com a sua direção inalterada por um operador linear  $T$, isto é, quais vetores $v \in V$ satisfazem a condição  $T(v)=\lambda v$, $ \lambda \in \mathbb{R}$. O par $\lambda \in \mathbb{R}$ e $v \in V$ que satistazem essa condição são chamados de autovalor e autovetor, respectivamente.
+
+\section{Autovalores e Autovetores}
+\textbf{Definição (Autovalor e Autovetor).} Seja $T: V \rightarrow V$ um operador linear. Se existirem um vetor $v \in V$,  não nulo, e um escalar $ \lambda \in \mathbb{R}$ tais que $$ T(v)=\lambda v,$$ dizemos que $\lambda$ é um \textit{autovalor} de $T$ e $v$ é um \textit{autovetor} de $T$ associado ao autovalor $\lambda$.
+
+\textbf{Observações}
+
+\begin{enumerate}
+\item Na definição acima, $\lambda \in \mathbb{R}$  pode ser igual a zero, mas  devemos ter sempre $v\neq 0$. Isto é,  o vetor nulo  nunca será  autovetor, embora o número zero possa ser um autovalor.
+\item Da equação $ T(v)=\lambda v$, podemos concluir intuitivamente que autovetores têm a sua direção preservada pela tranformação linear. Isto é, a ação da transformação linear $T$ sobre um autovetor $v$, ou aumenta ou diminui o seu tamanho; ou muda o seu sentido.
+\item Para cada autovalor $\lambda$ de $T$, o subconjunto de $V$ definido por   $$v_{\lambda}=\{ v \in V; T(v)=\lambda v\}$$ é um subespaço vetorial de $V$ e é chamado de \textit{autoespaço de $V$ associado a} $\lambda$.
+\end{enumerate}
+
+\subsection{Autovalores e autovetores de uma matriz}
+
+Seja $A$ uma matriz quadrada de ordem $n$. Dizemos que $\lambda \in \mathbb{R}$ é um  autovalor  de $A$, se existir  $v$ uma matriz coluna  de ordem $n\times  1$, não nula,  tal que $$Av=\lambda v.$$
+
+Observe que essa definição  equivale a dizer que os autovalores e autovetores da matriz $A$ são os autovalores e autovetores do operador linear $T_A: \mathbb{R}^n \rightarrow \mathbb{R}^n$ definido por $$T_A(x)=Ax.$$
+
+Por exemplo, os autovalores da matriz da matriz
+$A= \begin{bmatrix}
+2 & 0\\
+ 1& -3
+\end{bmatrix}$ podem ser obtidos resolvendo-se a equação $ \begin{bmatrix}
+2 & 0\\
+ 1& -3
+\end{bmatrix}\begin{bmatrix}
+x\\
+ y
+\end{bmatrix}=\lambda\begin{bmatrix}
+x\\
+ y
+\end{bmatrix}.$
+De onde obtemos o sistema não linear
+
+$\left\{\begin{matrix}
+2x & = & \lambda x \\
+ x-3y& = & \lambda y
+\end{matrix}\right.$.
+
+ Resolvendo-se esse sistema não linear, determinamos os valores reais de $\lambda$, se existirem, e o respectivo autoespaço associado. Porém a solução de um sistema não linear, em geral, não é uma tarefa simples. Uma maneira mais adequada para calcular os autovalores de um operador linear será apresentado a seguir. Trata-se do polinômio característico de $T$.
+
+
+
+\section{Polinômio Caracteristico}
+
+Seja  $A$ uma  matriz de ordem $n$. A matriz $$A-\lambda I$$ é chamada de \textit{matriz característica} de $A$ na indeterminada $\lambda$. O determinante  dessa matriz, isto é, $$det(A-\lambda I)$$ é um polinômio  em $\lambda$ chamado de \textit{polinômio característico} de $A$. Prova-se que os autovalores da matriz $A$ são exatamente as raízes reais do polinômio característico de $A$, ou seja, as raízes do polinômio $$p(\lambda)=det(A-\lambda I).$$
+
+Agora se $T:  V \rightarrow V$ é um operador linear e $\alpha$ é uma base de $V$, então definimos o polinômio característico de $T$ é como sendo $$p(\lambda)=det([T]_{\alpha}^{\alpha}-\lambda I).$$
+
+
+\vspace{0.7cm}
+\noindent \textbf{Observações.} O polinômio característico $p(\lambda)$ de $T$ independe da base $\alpha$ de $V$ escolhida.  Isto é, se $\beta$ é outra base de $V$, então $$det([T]_{\alpha}^{\alpha}-\lambda I)= det([T]_{\beta}^{\beta}-\lambda I).$$  Dessa forma, para operadores  lineares $$T: \mathbb{R}^n \rightarrow \mathbb{R}^n$$ sempre  podemos escolher a base canônica $\{ e_1, e_2,..., e_n\}$ e, assim,  simplificarmos o cálculo da matriz $[T]_{\alpha}^{\alpha}$.
+
+
+\subsection{Exemplos}
+\begin{enumerate}
+\item   Determine os autovalores e autovetores da matriz
+$A= \begin{bmatrix}
+2 & 0\\
+ 1& -3
+\end{bmatrix}$
+
+\textbf{Resolução.}
+
+Primeiro, construimos a matriz característica de $A$.
+
+$$A-\lambda I=
+ \begin{bmatrix}
+2 & 0\\
+ 1& -3
+\end{bmatrix} -\lambda
+ \begin{bmatrix}
+1 & 0\\
+ 0& 1
+\end{bmatrix}=
+ \begin{bmatrix}
+2-\lambda & 0\\
+ 1& -3-\lambda
+\end{bmatrix}$$
+
+Em seguida, calculamos o polinômio característico de $A$. Isto é, obtemos $p(\lambda)= det(A-\lambda  I)$:
+
+$$p(\lambda)= (2-\lambda)(-3-\lambda).$$
+
+\textit{{Cálculo dos Autovalores de $A$}}
+
+Os autovalores de $A$ são as raízes de $P(\lambda)$. Logo, devemos resolver a equação $P(\lambda)=0$, que implica em $(2-\lambda)(-3-\lambda)=0$. Logo, $\lambda=2$ ou $\lambda=-3$.
+
+Agora, para calcular os autovetores de $T$ devemos resolver o sistema $$Av=\lambda v$$ ou  o sistema $$ (A-\lambda I)v=0,$$ onde zero representa a matriz coluna nula de ordem $2 \times 1$. Vamos utilizar o segundo sistema.
+
+\textit{{Autovetores associados ao autovalor $\lambda_1=2$.}} Resolveremos o sistema
+$$
+ \begin{bmatrix}
+2-\lambda & 0\\
+ 1& -3-\lambda
+\end{bmatrix}
+ \begin{bmatrix}
+x\\
+y
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0
+\end{bmatrix}
+$$
+para $\lambda=2$. Daí, obtemos o sistema linear homogêneo:
+$$
+ \begin{bmatrix}
+2-2 & 0\\
+ 1& -3-2
+\end{bmatrix}
+ \begin{bmatrix}
+x\\
+y
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0
+\end{bmatrix} \Rightarrow
+ \begin{bmatrix}
+0 & 0\\
+ 1& -5
+\end{bmatrix}
+ \begin{bmatrix}
+x\\
+y
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0
+\end{bmatrix}
+.$$
+
+De onde obtemos $x-5y=0$ o que implica $x=5y$.  Logo, $$v_{\lambda_1}=\{ (5y, y); y \in \mathbb{R}\}=[(5,1)] $$ é o autoespaço associado ao autovalor $\lambda_1=2$ e $v=(5,1)$ é um autovetor de $A$ associado a $\lambda_1=2$.
+\textit{{Autovetores associados ao autovalor $\lambda_2=-3$.}}
+
+ Resolveremos o sistema
+$$
+ \begin{bmatrix}
+2-\lambda & 0\\
+ 1& -3-\lambda
+\end{bmatrix}
+ \begin{bmatrix}
+x\\
+y
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0
+\end{bmatrix}
+$$
+para $\lambda=-3$. Daí, obtemos o sistema linear homogêneo:
+$$
+ \begin{bmatrix}
+2-(-3) & 0\\
+ 1& -3-(-3)
+\end{bmatrix}
+ \begin{bmatrix}
+x\\
+y
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0
+\end{bmatrix} \Rightarrow
+ \begin{bmatrix}
+5 & 0\\
+ 1& 0
+\end{bmatrix}
+ \begin{bmatrix}
+x\\
+y
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0
+\end{bmatrix}
+.$$
+
+De onde obtemos $5x=0$ e  $x=0$. Logo, $x=0$ e $ y$ é uma variável livre. Assim , $$v_{\lambda_2}=\{ (0, y); y \in \mathbb{R}\}=[(0,1)] $$ é o autoespaço associado ao autovalor $\lambda_1=-3$ e $v=(0,1)$ é um autovetor de $A$ associado a $\lambda_2=-3$.
+
+Note que o conjunto $ \{ (5,1), (0,1)\} $ é uma base do $\mathbb{R}^2$ formada por autovetores de $A$.
+\item  Determine os autovalores e autovetores do operador linear $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$  dado por $T(x,y,z)=(x+2y+3z,-2y, z)$.
+\textbf{Resolução.}
+
+Neste caso, primeiro devemos encontrar a matriz  $[T]_{\alpha}^{\alpha}$ de $T$ em relação à alguma base $\alpha$ de $\mathbb{R}^3$. Como o polinômio característico de $T$ independe da base escolhida, vamos escolher a base canônica do $\mathbb{R}^3$.  Assim temos
+
+$$
+[T]=
+\begin{bmatrix}
+1 & 2 & 3\\
+0&-2& 0\\
+0&0&1
+\end{bmatrix}.$$
+
+
+Agora podemos construir a matriz característica de $T$,  ou seja, a matriz característica de $[T]$.
+
+$$[T]-\lambda I=
+\begin{bmatrix}
+1 -\lambda & 2 & 3\\
+0&-2-\lambda & 0\\
+0&0&1-\lambda
+\end{bmatrix},
+$$
+
+de onde obtemos o polinômio característico de $T$
+
+$$p(\lambda)= det([T]-\lambda  I)= (1-\lambda)^2(-2-\lambda).$$
+
+\textit{{Cálculo dos Autovalores de $T$}}
+
+Os autovalores de $T$ são as raízes de $P(\lambda)$. Logo, devemos resolver a equação $P(\lambda)=0$, que implica em $(1-\lambda)^2(-2-\lambda)=0$. Logo, $\lambda=1$ ou $\lambda=-2$. Assim,  $T$ possui dois  autovalores  distintos, que são $\lambda_1=1$ e $\lambda_2=-2$.
+
+Agora, para calcular os autovetores de $T$ devemos resolver o sistema $$[T]v=\lambda v$$ ou  o sistema $$ ([T]-\lambda I)v=0,$$ onde zero representa a matriz coluna nula de ordem $3 \times 1$. Vamos utilizar o segundo sistema.
+
+\textit{{Autovetores associados ao autovalor $\lambda_1=1$.}} Resolveremos o sistema
+$$
+([T]-\lambda I)v=\begin{bmatrix}
+1 -\lambda & 2 & 3\\
+0&-2-\lambda & 0\\
+0&0&1-\lambda
+\end{bmatrix}
+ \begin{bmatrix}
+x\\
+y \\
+z
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0 \\
+0
+\end{bmatrix}
+$$
+com  $\lambda=1$.
+
+Daí ,  obtemos o seguinte sistema linear homogêneo
+
+$$
+\begin{bmatrix}
+0 & 2 & 3\\
+0&-3 & 0\\
+0&0&0
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y \\
+z
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0 \\
+0
+\end{bmatrix}.
+$$
+
+Resolvendo o sistema homogêneo, obtemos  as equações  $$2y+3z=0 \; \text{e} \; -3y=0. $$  Logo,  $y=0$ o que implica $z=0$ e a variável $x$ é livre.  Dessa forma, obtemos $$v_{\lambda_1}=\{ (x, 0, 0 ); x \in \mathbb{R}\}=[(1,0,0), $$  que é o autoespaço associado ao autovalor $\lambda_1=1$. Já  o vetor $v=(1,0,0)$ é um autovetor de $T$ associado a $\lambda_2=1$.
+
+
+\textit{{Autovetores associados ao autovalor $\lambda_2=-2$.}}
+
+ Resolveremos o sistema
+$$
+([T]-\lambda I)v=0 \Rightarrow
+\begin{bmatrix}
+1 -\lambda & 2 & 3\\
+0&-2-\lambda & 0\\
+0&0&1-\lambda
+\end{bmatrix}
+ \begin{bmatrix}
+x\\
+y \\
+z
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0 \\
+0
+\end{bmatrix}
+$$
+com  $\lambda=-2$. Daí, obtemos o sistema linear homogêneo
+
+$$
+\begin{bmatrix}
+3 & 2 & 3\\
+0&0& 0\\
+0&0&3
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y \\
+z
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0 \\
+0
+\end{bmatrix}.
+$$
+
+Resolvendo o sistema, obtemos  as equações  $$3x+2y+3z=0 \; \text{e} \; 3z=0. $$  Daí obtemos,  $z=0$ o que implica $3x+2y=0$. Assim,  $$ y= -\dfrac{3}{2}x$$   e a variável $x$ é livre.  Dessa forma, obtemos $$v_{\lambda_2}=\{ (x, -\dfrac{3x}{2}, 0 ); x \in \mathbb{R}\}=[(1,-\dfrac{3}{2},0)]=[(2,-3,0)] $$  que é o autoespaço associado ao autovalor $\lambda_2=-2$.  O vetor $v=(2,-3,0)$ é um autovetor de $T$ associado a $\lambda_2=-2$, porém note que qualquer vetor do tipo $( 2k, -3k,0)$ e um autovetor de $T$ associado ao autovalor $-2$.
+
+
+Note que o conjunto $ \{ (1,0,0), (2,-3,0)\} $, apesar de ser um conjunto LI, não é uma base de $\mathbb{R}^3$ pois possui apenas dois vetores. Dessa maneira, concluimos que não existe uma base $\mathbb{R}^3$ formada por  autovetores de $T$.
+\end{enumerate}
+
+\section{Exercícios Propostos}
+\begin{enumerate}
+\item  Determine os autovalores e autovetores correspondentes das seguintes transformações lineares.
+\begin{enumerate}[label=(\alph*)]
+\item $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$  definida por $T(x,y)=(x,-y)$.
+\item  $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$  definida por $T(x,y)=(-x,-y)$.
+\item  $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$  definida por $T(x,y)=(x+y,x-y)$.
+\item  $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$  definida por $T(x,y,z)=(x,x+2y, x+y-3z)$ .
+\item  $T: \mathbb{R}^4 \rightarrow \mathbb{R}^4$  definida por $T(x,y,w,z)=(x+y+z+w, -2y+z+w, 3z+w, 2w).$
+\end{enumerate}
+
+\end{enumerate}
+
+\section{Diagonalização de Operadores}
+
+O Objetivo desta seção é determinar uma base $\alpha$ do espaço vetorial $V$, em relação a qual a matriz do operador $T : V \rightarrow V$ é uma matriz diagonal. Veremos  que  uma base de $V$  formada por autovetores de $T$  satisfaz essa propriedade.
+
+De  fato,  uma condição necessária para que um conjunto de vetores formem uma base para um espaço vetorial $V$ é que os mesmos formem um conjunto LI. O teorema a seguir mostra que autovetores associados a autovalores distintos são vetores linearmente independentes.
+
+\begin{thm} Autovetores associados a autovalores distintos são linearmente independentes.\label{teo1}
+\end{thm}
+
+\textbf{\textit{Demonstração.}} Vamos considerar caso em que $T$ possui dois autovalores distintos. Suponha que  $\lambda_1$ e $\lambda_2$ são dois autovalores distintos do operador linear $T : V \rightarrow V$;  e sejam $v_1$ e $v_2$ os autovalores associados a $\lambda_1$ e $\lambda_2$, respectivamente. Daí temos,
+\begin{align}
+T(v_1)&=\lambda_1v_1\\ \nonumber
+T(v_2)&=\lambda_2v_2.\label{diag1}
+\end{align}
+Para mostrar que $\{v_1, v_2\}$ é um conjunto LI, vamos considerar a equação
+\begin{equation}
+a_1v_1+a_2v_2=0.\label{diag2}
+\end{equation}
+Dessa forma, temos
+\begin{align*}
+T(a_1v_1+a_2v_2)&=T(0),\\
+a_1T(v_1)+a_2T(v_2)&=0,
+\end{align*}
+o que implica em
+\begin{equation}
+a_1\lambda_1v_1+a_2\lambda_2v_2=0.\label{diag3}
+\end{equation}
+Multiplicando a equação \eqref{diag2} por $\lambda_1$, obtemos
+
+\begin{equation}
+a_1\lambda_1v_1+a_2\lambda_1v_2=0.\label{diag4}
+\end{equation}
+
+Daí, subtraindo as equações \eqref{diag3} e \eqref{diag4} uma da outra, obtemos
+
+$$a_2\lambda_2v_2 - a_2\lambda_1v_2=0. \;\; \text{ou seja,}\;\; a_2(\lambda_2-\lambda_1)v_2=0.$$
+
+Como, por hipótese, $\lambda_2\neq\lambda_1$ e, por definição, $v_2 \neq 0$, então $a_2=0$. Substituindo esse valor em \eqref{diag2} obtemos $a_1=0$. Portanto, o conjunto  $\{v_1, v_2\}$ é LI.
+
+\vspace{0.2cm}
+De acordo com  o Teorema \ref{teo1}, se em um espaço $V$ de dimensão $n$, o operador linear $T : V \rightarrow V$ possuir $n$ autovalores distintos, então podemos garantir a existência de $n$ autovetores linearmente independentes, e portanto, uma base de $V$ formada por autovetores de $T$.
+
+
+
+\begin{thm} Um operador linear $T : V \rightarrow V$ admite uma base  $\alpha = \{v_1, v_2,...,v_n\}$ em relação a qual $[T]_{\alpha}^{\alpha}$ será uma matriz diagonal se, e somente se, essa  base $\alpha$ é formada por autovetores de $T$.\end{thm}
+
+
+
+
+
+\textbf{Definição (Operador diagonalizável).} Seja $T: V \rightarrow V$ um operador linear.  Dizemos que $T$ é um \textit{operador diagonalizável}  se existe uma base de $V$ cujos elementos são autovetores de $T$.
+
+\subsection{Exemplos}
+\begin{enumerate}
+
+\item O operador linear $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$  dado por $T(x,y)=(2x, x+3y)$ é  diagonalizável. De fato,  a matriz de $T$ em relação a  base canônica de $ \mathbb{R}^2$  é $$[T]= \begin{bmatrix}
+2 & 0\\
+ 1& -3
+\end{bmatrix}.$$ Note que $[T]$ é igual a  matriz $A$ do \textbf{Exemplo 1} da \textbf{Seção 3.1}. Logo, existe uma base de $\mathbb{R}^2$ formada por autovetores de $T$ e, portanto, \textbf{$T$ é diagonalizável}.
+
+\item O operador linear $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ do \textbf{Exemplo 2} da \textbf{Seção 3.1} \textbf{não é diagonalizável}. De fato, não foi possível determinar uma base para o $\mathbb{R}^3$ formada por autovetores de $T$.
+\end{enumerate}
+
+\textbf{Definição (Matriz Diagonalizável).} Dizemos que uma matriz  $A$ quadrada de ordem $n$ é diagonalizável, se a transformação linear   $T_A:  \mathbb{R}^n \rightarrow \mathbb{R}^n$ definida por $$T_A(v)=Av$$ é diagonalizável.
+
+Equivalentemente, dizemos que uma matriz  $A$ quadrada de ordem $n$ é diagonalizável se existe uma matriz $P$ de ordem $n$, invertível  e tal que $$P^{-1}AP$$ é uma matriz diagonal. Dizemos que a matriz $P$ é  a matriz que diagonaliza $A$.
+
+
+\vspace{0.5cm}
+
+\noindent \textbf{Observação.} No caso da matriz  $A$  de ordem $n$ ser diagonalizável,  existe uma base $\alpha$ de  $\mathbb{R}^n$ formada por autovetores de $A$. Dessa forma, a matriz $P$  que diagonaliza $A$ é a matriz cujas colunas são os   $n$ autovetores que formam a base  $\alpha$.
+
+
+
+\subsection{Exemplos}
+\begin{enumerate}
+
+\item  A matriz
+$A= \begin{bmatrix}
+2 & 0\\
+ 1& -3
+\end{bmatrix}$ é diagonalizável.  De fato, do \textbf{Exemplo 1} da \textbf{Seção 3.1},
+  $(5,1)$ e $(0,1)$, vetores do $\mathbb{R}^2$, são autovetores de $A$  linearmente independentes. Logo, a matriz $$P= \begin{bmatrix}
+5 & 0\\
+ 1& 1
+\end{bmatrix}$$ cujas colunas são formadas pelos elementos desses vetores é uma matriz invertível, cuja inversa é
+$$P^{-1}= \begin{bmatrix}
+1/5 & 0\\
+ -1/5& 1
+\end{bmatrix}.$$ Além disso,  temos que
+$$P^{-1}AP=  \begin{bmatrix}
+1/5 & 0\\
+ -1/5& 1
+\end{bmatrix}
+\begin{bmatrix}
+2 & 0\\
+ 1& -3
+\end{bmatrix}
+\begin{bmatrix}
+5 & 0\\
+ 1& 1
+\end{bmatrix}=
+\begin{bmatrix}
+2 & 0\\
+ 0& -3
+\end{bmatrix}$$
+é uma matriz diagonal.  Logo, $P$ é a matriz que   diagonaliza $A$.  Portanto, $A$ é diagonalizável.
+
+
+
+\end{enumerate}
+
+\section{Exercícios Propostos}
+\begin{enumerate}
+\item  Mostre que a matriz
+$A= \begin{bmatrix}
+1 & 1\\
+ 0& 1
+\end{bmatrix}$  não é diagonalizável.
+
+\item  Mostre que a matriz
+$A= \begin{bmatrix}
+1 & 1\\
+ 0& 2
+\end{bmatrix}$ é diagonalizável.
+
+\item Mostre que a matriz
+$A= \begin{bmatrix}
+1 & 2\\
+ 3& 2
+\end{bmatrix}$  é semelhante à matriz
+$B= \begin{bmatrix}
+4 & 0\\
+ 0& -1
+\end{bmatrix}$. (sugestão: mostre que existe uma matriz invertìvel $P$ tal que $P^{-1}AP=B$)
+
+\item A matriz
+$A=
+\begin{bmatrix}
+2 &1&0&0\\
+0&2&0&0\\
+0&0&2&0\\
+0&0&0&3
+\end{bmatrix}$ é diagonalizável?
+
+\item Mostre que
+$A=
+\begin{bmatrix}
+3 &0&0\\
+0&2&-5\\
+0&1&-2
+\end{bmatrix}$ não é diagonalizável?
+
+
+
+\end{enumerate}
+
+
+\section{Exercícios Gerais}
+\begin{enumerate}
+
+\item  Diz-se que  um operador linear $T:V  \rightarrow V$ é \textit{idempotente} se $$T(T(v))=T(v)$$ para todo $v \in V$.
+
+\begin{enumerate}[label=(\alph*)]
+\item Seja $T$ idempotente. Ache seus autovalores.
+\item Encontre uma matriz $A$ de ordem 2, não nula, tal que $T_A: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ seja idempotente.
+\item  Mostre que um operador linear idempotente é diagonalizável.
+\end{enumerate}
+
+
+\item  \textbf{Teorema de Cayley-Hamilton:} Se $T:V  \rightarrow V$ é um operador linear, $\alpha$ é uma base de $V$ e $p(\lambda)$ é o polinômio característico de $T$, então $$p([T]_{\alpha}^{\alpha}=0.$$ Sendo que o $0$ representa a matriz nula.
+\begin{enumerate}[label=(\alph*)]
+\item Seja $T(x,y)=(x+y, -y)$. Ache o polinômio característico $p(\lambda)$ de $T$.
+\item Se  $[T]$ é a matriz de $T$ em relação à base canônica do $\mathbb{R}^2$ , verifique que  $p([T])=0$ .
+\item Se $p(t)=t^2+at+bt=0$, então $p(A)=A^2+aA+bI=0$, onde 0 é matriz nula de ordem 2.   Dessa forma, pode-se usar a equação $$A^2=-aA-bI$$ para calcular $A^2$. Use os resultados dos itens (a) e (b) e calcule  as matrizes $[T]^2$ e $[T]^3$.
+\end{enumerate}
+
+\end{enumerate}
+
+Espera-se que ao ter estudado essa seção você tenha adquirido  as seguintes competências e habilidades:
+\begin{itemize}
+\item  Calcular  os autovalores e   autovetores  de uma matriz quadrada de ordem $n$;
+\item  Calcular  os autovalores  e os autovetores  de um operador linear  $T$ ;
+\item  Verificar se  uma dada matriz  é diagonalizável e obter a matriz $P$ que diagonaliza a mesma;
+\item Verificar se um determinado operador linear é diagonalizável;
+\item Dado um operador $T:V  \rightarrow V$ obter, quando existir, uma base de $V$ formada por autovetores de $T$.
+\end{itemize}
+%\begin{enumerate}
+
+\section{Respostas}
+\subsection{ \textbf{Exercícios 4 }}
+\begin{enumerate}
+\item
+\begin{enumerate}[label=(\alph*)]
+\item $\lambda_1=-1$ e $V_{\lambda_1}=\{(0,y);  y \in \mathbb{R} \}$;  $\lambda_2=1$ e $V_{\lambda_2}=\{(x,0);  x \in \mathbb{R} \}$
+\item $\lambda=-1$ e $V_{\lambda}=\{(x,y);  x, y \in \mathbb{R} \}= [ (1,0), (0,1)]=\mathbb{R}^2$.
+\item $\lambda_1=-\sqrt{2}$ e $V_{\lambda_1}=\{(x,(1+\sqrt{2})x);  x\in \mathbb{R} \}=[(1, 1+\sqrt{2})]$;  $\lambda_2=\sqrt{2}$ e $V_{\lambda_2}=\{(x,(\sqrt{2}-1)x);  x \in \mathbb{R} \}=[(1, \sqrt{2}-1)]$.
+
+\item $\lambda_1=1$ e $V_{\lambda_1}=\{(-5y,y,-y);  y \in \mathbb{R} \}$;  $\lambda_2=2$,  $V_{\lambda_2}=\{(0,y,5y);  y \in \mathbb{R} \}$;  $\lambda_3=-3$ e $V_{\lambda_3}=\{(0,0,z);  z \in \mathbb{R} \}$.
+
+\item $\lambda_1=1$ e $V_{\lambda_1}=\{(x,0,0,0);  x \in \mathbb{R} \}$;  $\lambda_2=-2$,  $V_{\lambda_2}=\{(x,-3x,0,0);  x \in \mathbb{R} \}$;  $\lambda_3=3$ e $V_{\lambda_3}=\{(x,0,2x,0);  x \in \mathbb{R} \}$; $\lambda_4=2$ e $V_{\lambda_4}=\{(5y,y,0,4y);  y \in \mathbb{R} \}$.
+\end{enumerate}
+\end{enumerate}
+
+
+\subsection{ \textbf{Exercícios 6 }}
+\begin{enumerate}
+\item  $\lambda =1$ é o único autovalor do operador $T_A$ e o seu  autoespaço associado é $V_{\lambda}=\{(x,0);  x \in \mathbb{R} \}$. Logo, $R^2$ não possui uma base formada por autovetores de $T_A$. Assim, $T_A$ não é diagonalizável e portanto $A$ não é uma matriz diagonalizável.
+
+\item  Considerando que a matriz $A$ é a matriz na base canônica do operador linear $T_A:\mathbb{R}^2 \rightarrow \mathbb{R}^2$, $$ T_A(v)=Av$$ onde $v$ é um vetor coluna. Temos que $\lambda=1 $ e $\lambda=2$ são autovalores distintos  $T_A$. Logo, $T_A$ é diagonalizável. Portanto, $A$ é diagonalizável.
+\item A matriz $P$ que diagonaliza a matriz $A$ é a matriz cujas colunas são formadas por autovetores linearmente independentes de $A$.  Neste caso, $$P= \begin{bmatrix}
+1 & 1\\
+ 3/2& -1\end{bmatrix}.$$
+
+\end{enumerate}
+\subsection{ \textbf{Exercícios 7}}
+\begin{enumerate}
+\item
+\begin{enumerate}[label=(\alph*)]
+\item  Sejam $T$ um operador idempotente, $\lambda$ um autovalor de $T$ e $v \neq 0$ tal que $T(v)=\lambda v$. Como $T$ é idempotente vale a igualdade $$T(T(v))=T(v).$$  Substituindo, nessa equação,  $T(v)$ por $\lambda v$ , obtemos:
+\begin{align*}
+T(T(v))&=\lambda v\\
+T(\lambda v)&=\lambda v\\
+\lambda T( v)&=\lambda v\\
+\lambda \lambda v&=\lambda v\\
+\lambda^2v -\lambda v&=0\\
+(\lambda^2 -\lambda )v&=0.\\
+\end{align*}
+Como $ v \neq 0$, então devemos ter  $\lambda^2 -\lambda =0$; de onde obtemos $\lambda=0$ e $\lambda=1$.
+\item Por exemplo, a matriz $A= \begin{bmatrix}
+0 & 0\\
+0& 1\end{bmatrix}$ satisfaz a condição solicitada.
+\end{enumerate}
+
+\item
+\begin{enumerate}[label=(\alph*)]
+\item  $p(\lambda)= \lambda^2- 1$.
+\item Como  $[T]= \begin{bmatrix}
+1 & 1\\
+0&- 1\end{bmatrix}$  e $p(\lambda)= \lambda^2- 1$, temos:
+\begin{align*}
+p(\lambda)&=\lambda^2 - 1\\
+p([T])&=[T]^2- 1I_2\\
+p([T])&=\left(\begin{bmatrix}
+1 & 1\\
+0&- 1\end{bmatrix}\right)^2 - \begin{bmatrix}
+1 & 0\\
+0&1\end{bmatrix}\\
+p([T])&=\begin{bmatrix}
+1 & 1\\
+0&- 1\end{bmatrix} \begin{bmatrix}
+1 & 1\\
+0&- 1\end{bmatrix}- \begin{bmatrix}
+1 & 0\\
+0&1\end{bmatrix}\\
+p([T])&=\begin{bmatrix}
+1 & 0\\
+0&1\end{bmatrix} - \begin{bmatrix}
+1 & 0\\
+0&1\end{bmatrix}\\
+p([T])&=\begin{bmatrix}
+0 & 0\\
+0&0\end{bmatrix}.
+\end{align*}
+\item  Calculando o  polinômio  característico na matriz  $[T]$ obtemos $p([T])=[T]^2- I_2$. Pelo Teorema de Cayley-Hamilton,  $p([T])=0$. Logo, devemos ter $$[T]^2- I_2=0,$$ de onde obtemos $[T]^2= I_2$, como já foi verificado no item (b). Para calcular $[T]^3$, usamos a igualdade $[T]^3= [T]^2[T]$. Como $[T]^2=I_2$, então  $[T]^3= I_2[T]$. Logo, $[T]^3= [T]$.
+
+\end{enumerate}
+
+\end{enumerate}

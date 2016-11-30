@@ -1,0 +1,511 @@
+\chapter{Espaços com Produto Interno}
+\thispagestyle{empty}
+
+\section{Introdução}
+
+O espaço $\mathbb{R}^3$  possui características importantes que gostaríamos que fossem compartilhadas por outros espaços vetoriais. Por exemplo,  em $\mathbb{R}^3$ podemos calcular ângulo e distâncias entre dois vetores.  Como esses conceitos são oriundos da geometria, dizemos de um modo geral, que o espaço $\mathbb{R}^3$ possui uma geometria.  Nesta seção, teremos como objetivo extender tais conceitos, naturais ao $\mathbb{R}^3$, para outros outros espaços vetoriais.
+
+\section{Produto interno}
+
+
+\textbf{Definição (Produto interno).} Seja $V$ um espaço vetorial sobre $\mathbb{R}$. Um \textit{produto interno} sobre $V$ é uma função $\langle \rangle$ de $V \times V$ em $\mathbb{R}$,  $$\langle \rangle : V\times V \rightarrow \mathbb{R}, $$
+
+
+que satisifaz as seguintes propriedades:
+
+\begin{enumerate}[label=(\roman*)]%[label=(\alph*)]
+\item  $\langle u, u\rangle  \geq 0$  e  $\langle u, u \rangle = 0$  se, e somente se, $u=0$.
+\item  $\langle u, v\rangle  = \langle v, u \rangle$ para quaisquer $u, v \in V$.
+\item $\langle u+w, v\rangle  = \langle u, v \rangle + \langle w, v \rangle $ para quaisquer $u, v $ e $ w \in V$.
+\item $\langle k u, v \rangle = k \langle  u, v \rangle$ para todo $ k \in \mathbb{R}$ e para quaisquer $ u, v \in V$.
+\end{enumerate}
+
+
+
+\vspace{0.7cm}
+\noindent \textbf{Observações.}
+
+\begin{enumerate}
+\item   $\langle 0, v\rangle  = \langle v, 0 \rangle=0$ para todo $v \in V$.
+
+\item   $\langle u, w+v\rangle  = \langle u, w \rangle + \langle u, v \rangle $ para quaisquer $u, v $ e $ w \in V$.
+\end{enumerate}
+
+\subsection{Exemplos}
+\begin{enumerate}
+
+
+\item  \textbf{Espaço Vetorial $\mathbb{R}^3$. } Sejam $x=(x_1, x_2, x_3)$ e $y=(y_1, y_2, y_3)$ vetores quaisquer do $ \mathbb{R}^3$. A função definida por
+ $$\langle x, y \rangle = x_1y_1+x_2y_2+x_3y_3 $$ é um produto interno sobre $\mathbb{R}^3$.
+
+\textbf{\textit{Demonstração.}} \textit{Aula.}
+
+\item  \textbf{Espaço Vetorial $\mathbb{R}^n$. }  Sejam $x=(x_1, x_2,..., x_n)$ e $y=(y_1, y_2,.., y_n)$ vetores quaisquer do $ \mathbb{R}^n$. A função definida por
+ $$\langle x, y \rangle = x_1y_1+x_2y_2+...+x_ny_n $$ é um produto interno sobre $\mathbb{R}^n$. Este produto interno é chamado de \textbf{produto interno canônico} de  $\mathbb{R}^3$    ou produto interno usual $\mathbb{R}^n$.
+
+
+\item  \textbf{Espaço Vetorial  $\mathcal{C}[0,1]$ (o espaço vetorial formado por todas as funções que são  contínuas $[0,1]$). }  Sejam $f$ e $g$ funções quaisquer de  $\mathcal{C}[0,1]$. Isto é, $f$ e $g$ são funções contínuas no intervalo $[0,1]$ de $\mathbb{R}$. A função definida por
+ $$\langle f, g \rangle = \int_{0}^{1}f(t)g(t)dt $$ é um produto interno sobre  $\mathcal{C}[0,1]$, sendo também  chamado de {produto interno canônico} de   $\mathcal{C}[0,1]$.
+
+\textbf{\textit{Demonstração.}} Primeiro lembre-se das seguintes  propriedades da integral:
+
+ $(a) \displaystyle  \int_{a}^{b}[f(x)+g(x)]dx=   \int_{a}^{b}f(x)dx +   \int_{a}^{b}g(x)dx$,   $ (b) \displaystyle\int_{a}^{b}kf(x)dx =  k \int_{a}^{b}f(x)dx $
+
+e $(c) \displaystyle \int_{a}^{b}f(x)dx \geq 0$,  sempre que $f(x) \geq 0$ em $[a,b]$.
+
+A \textbf{propriedade $(i)$} da definição de produto interno é satisfeita. De fato,
+
+\begin{align*}
+\langle f, f \rangle = \int_{0}^{1}f(t)f(t)dt=\int_{0}^{1}[f(t)]^2dt.
+\end{align*}
+Como  $[f(t)]^2 \geq 0$ para todo $t \in [0,1]$, pela propriedade (c) das integrais, obtemos que  $\displaystyle \int_{0}^{1}[f(t)]^2dt \geq 0$ e, portanto, $\langle f, f \rangle  \geq 0$.
+
+Agora, se  $\langle f, f \rangle =0$, então temos  $\displaystyle \int_{0}^{1}[f(t)]^2dt=0$. Daí,  $f(t)=0$ para todo $t \in [0,1]$  e, portanto, $f=0$. Isto é, $f$ é a função que se anula em todo ponto de $[0,1]$.
+
+Para provarmos que a \textbf{propriedade $(ii)$ } é válida, basta atentarmos para o fato de que vale a comutatividade para o produto de números reais. Isto é, $f(x)g(x)=g(x)f(x)$ para todo $x$ real. Daí, temos
+\begin{align*}
+\langle f, g\rangle= \int_{0}^{1}f(t)g(t)dt=\int_{0}^{1}g(t)f(t)dt=\langle g,f\rangle.
+\end{align*}
+
+A \textbf{propriedade $(iii)$ } da definição de produto interno pode ser verificada fazendo uso da propriedade (a) das integrais. De fato, dadas funções $f, g, h \in \mathcal{C}[0,1]$ temos
+\begin{align*}
+\langle f+g, h \rangle& = \int_{0}^{1}[f+g](t)h(t)dt=\int_{0}^{1}[f(t)+g(t)]h(t)dt=\int_{0}^{1}[f(t)h(t)+g(t)h(t)]dt\\
+                                   &=\int_{0}^{1}f(t)h(t)dt + \int_{0}^{1}g(t)h(t)dt\\
+                                   &=\langle f, h \rangle +\langle g,h \rangle.
+\end{align*}
+
+Por fim, a \textbf{propriedade $(iv)$ } pode ser verificada fazendo uso da propriedade $(b)$ das integrais. De fato, dadas uma constante real $k$ e uma  função $f \in \mathcal{C}[0,1]$, segue da propriedade $(b)$ das integrais  e da definição deste produto interno
+\begin{align*}
+\langle kf, g \rangle& = \int_{0}^{1}(kf)(t)g(t)dt=\int_{0}^{1}kf(t)g(t)dt=k\int_{0}^{1}(f)(t)g(t)dt=k\langle f, g \rangle.
+\end{align*}
+
+Portanto, comos as propriedades (i)-(iv) da definição de produto são satisfeitas, então  $$\langle f, g \rangle = \int_{0}^{1}f(t)g(t)dt $$ é um produto interno sobre  $\mathcal{C}[0,1]$.
+
+\item  \textbf{Espaço Vetorial $\mathcal{M}(m,n)$. }   Seja $X$ uma matriz quadrada de ordem $n$. Chama-se  \textit{traço} da matriz $X$, denotamos $tr(X)$,  a soma dos termos de sua diagonal principal. Isto é, $$tr(X)=x_{11}+x_{22}+...+x_{nn}=\sum_{i=1}^{n}{x_{ii}}.$$ Sejam $A$ e $B$ matrizes quaisquer de  $\mathcal{M}(m,n)$. Isto é, $A$ e $B$ são matrizes de ordem $m \times n$. A função  definida por definida por
+ $$\langle A, B \rangle = \text{tr}(B^TA)=\sum_{i}^{n}(B^TA)_{ii} $$ é um produto interno sobre $\mathcal{M}(m,n)$.
+
+\textbf{\textit{Demonstração.}} \textit{Exercício.}
+\end{enumerate}
+
+\section{Norma}
+
+\textbf{Definição (Norma).} Seja $V$ um espaço vetorial com produto interno.  Para cada $v \in V$, definimos a norma de $v$, denotamos $||v||$, como sendo o número real
+$$||v||= \sqrt{\langle v, v \rangle }. $$
+
+\vspace{0.7cm}
+\noindent \textbf{Observações.}
+
+\begin{enumerate}
+\item $||v||= \sqrt{\langle v, v \rangle}  \Longleftrightarrow ||v||^2=  \langle v, v \rangle$.
+\item Se $v \in V$ é tal que $||v||=1$, dizemos que $v$ é \textit{unitário}.
+
+\item Sendo $V$ um espaço vetorial com produto interno segue, diretamente das definições de produto interno e de norma, as seguintes propriedades:
+
+\begin{enumerate}[label=(\roman*)]%[label=(\alph*)]
+\item  $|| v ||  \geq 0$  e  $|| v || = 0$  se, e somente se, $v=0$.
+\item  $||k \cdot v ||  = |k|\cdot|| v ||  $   para todo $k \in \mathbb{R}$ e para todo  $v \in V$.
+\end{enumerate}
+
+\end{enumerate}
+
+
+\subsection{Exemplos}
+\begin{enumerate}
+
+
+\item   Considerando o espaço vetorial $\mathbb{R}^2$ com o produto interno usual as normas dos vetores  $x=(1,-1)$ e $y=(-2,-3)$ são respectivamente,
+\begin{align*}
+ ||x||&= \sqrt{\langle x, x \rangle }= \sqrt{\langle (1,-1), (1,-1) \rangle } = \sqrt{1^2+(-1)^2} = \sqrt{2},\\
+||y||&= \sqrt{\langle y, y\rangle }= \sqrt{\langle (-2,-3), (-2,-3) \rangle } = \sqrt{(-2)^2+(-3)^2} = \sqrt{13}.
+\end{align*}
+
+
+\item No espaço das funções polinomiais de grau menor ou a 2,  $\mathcal{P}_2(\mathbb{R})$,  podemos considerar  o produto interno
+ $$\langle f, g \rangle = \int_{0}^{1}f(t)g(t)dt.$$  De fato, toda função polinômial de grau menor ou igual a 2 é também uma função contínua. Assim, dado o polinômio $p(x)=x^2-2 \in\mathcal{P}_2(\mathbb{R})$, em relação a esse produto interno temos
+
+\begin{align*}
+ ||p(x)||^2&= \langle p(x), p(x) \rangle = \int_{0}^{1}(x^2-2)( x^2-2)dx= \int_{0}^{1}(x^4-4x^2+4)dx=\dfrac{43}{15}.
+\end{align*}
+
+\end{enumerate}
+
+\vspace{0.7cm}
+
+\subsection {\textbf{A Desigualdade de Cauchy-Shwarz.}}
+Seja $V$ um espaço vetorial com produto interno. Então,
+\begin{align}
+|\langle u, v\rangle| \leq ||u||\cdot ||v|| \end{align} para quaisquer $u, v \in V$. A igualdade vale se, e somente se, $u$ e $v$ forem vetores linearmente dependentes.
+
+\textbf{\textit{Demonstração.}} \textit{Aula.}
+
+\vspace{0.7cm}
+
+A Desigualdade de Cauchy-Schwarz tem aplicações em vários ramos da matemática. Nesta seção, essa desigualdade será utilizada para demonstrar outra desigualdade muito importante, a \textit{Desigualdade Triangular}, e também para estabelecermos a definição de ângulo entre dois vetores.
+
+
+
+\subsection{ \textbf{A Desigualdade Triangular}}
+
+Sabe-se da \textit{Geometria Euclidiana} que se $a$, $b$ e $c$ são as medidas dos lados de um triângulo qualquer, então  $$ a < b + c. $$ Isto é, a medida de um dos lados é sempre  inferior à  soma das medidas dos outros dois lados. Uma versão deste resultado para vetores  será apresentada a  seguir.
+
+\vspace{0.7cm}
+
+
+\textbf{Desigualdade  Triangular.}  Seja $V$ um espaço vetorial com produto interno. Então,
+\begin{align}
+||u+ v|| \leq ||u|| + ||v||
+\end{align}
+para quaisquer $u, v \in V$.
+
+\textbf{\textit{Demonstração.}} \textit{Aula.}
+\vspace{0.7cm}
+
+
+\subsection {\textbf{Ângulo entre dois  vetores}}
+
+Sejam  $u$ e $v$  dois vetores não nulos do espaço vetorial com produto interno $V$. Da desigualdade de Cauchy-Shwarz temos que
+
+\begin{align*}
+|\langle u, v\rangle| \leq ||u||\cdot ||v|| \end{align*}
+para quaisquer $u, v \in V$.  Efetuando a divisão dessa desigualdade pelo número real positivo $ ||u||\cdot ||v|| $, obtemos
+
+\begin{align}
+\dfrac{|\langle u, v\rangle|}{ ||u||\cdot ||v|| }\leq 1. \label{ang1}\end{align}
+
+Devido à propriedade de módulo de números reais, a equação \eqref{ang1} pode ser reescrita do seguinte modo
+
+\begin{align}
+-1 \leq \dfrac{\langle u, v\rangle}{ ||u||\cdot ||v|| }\leq 1.\end{align}
+
+
+Por outro lado, sabemos que a função $cos(t)$ é tal que
+\begin{align} -1 \leq cos(t)\leq 1. \end{align}
+
+Além disso, para $ t$ variando de 0 até $\pi$ radianos, a função $cos(t)$ assume cada valor do intervalo $[-1,1]$ uma única vez. Portanto, existe um ângulo $t \in [ 0, \pi]$ tal que
+
+\begin{align}
+cos(t)=\dfrac{\langle u, v\rangle}{ ||u||\cdot ||v|| }. \label{ang2}\end{align}
+
+Este ângulo $t$  é chamado de ângulo entre os vetores $u$ e $v$.
+
+\subsection {\textbf{Ortogonalidade}}
+
+Note que  da igualdade \eqref{ang2}
+\begin{align*}
+cos(t)=0  \Longleftrightarrow \dfrac{\langle u, v\rangle}{ ||u||\cdot ||v|| }=0 \Longleftrightarrow  \langle u, v \rangle =0. \label{ang}\end{align*}
+
+Além disso, $cos(t)=0$, no intervalo $[0, \pi]$ se, e somente se, $t=\dfrac{\pi}{2}$.  Dessa forma,  é conveniente  a seguinte definição de \textit{ortogonalidade} entre dois vetores $u$ e $v$:
+
+
+\vspace{0.7cm}
+\textbf{Definição (Vetores Ortogonais).} Seja $V$ um espaço com produto interno. Dizemos que  dois vetores $u$ e $v$ são ortogonais se $ \langle u, v \rangle = 0$, e denotamos $u \perp v$.
+
+\subsection{Exemplos}
+
+\begin{enumerate}
+
+
+\item   No {Espaço Vetorial $\mathbb{R}^3$} considere os vetores $x=(1, -1, 0)$ e $y=(1, 1, 1)$ e o produto interno usual.  Calculando $\langle x, y \rangle$,   obtemos
+ $$\langle x, y \rangle = 1\times 1+ (-1)\times 1+ 0\times 1=0.$$
+
+Assim,  os vetores $x$ e $y$ são ortogonais.
+
+
+\item Podemos verificar facilmente  que os vetores $e_1$, $e_2$, ..., $e_n$ da base canônica do $\mathbb{R}^n$ são dois a dois ortogonais, segundo o produto interno usual.
+
+
+\item  No Espaço Vetorial $\mathcal{C}[0,\pi]$ considere as funções $f(x)=senx$ e $g(x)=cosx$.
+ \begin{align*}\langle f, g \rangle &= \int_{0}^{\pi}f(x)g(x)dx\\
+&= \int_{0}^{\pi}sen(x)cos(x)dx\\
+	&=\int_{0}^{\pi}\dfrac{2}{2}sen(x)cos(x)dx=\dfrac{1}{2}\int_{0}^{\pi}{2}sen(x)cos(x)dx\\
+    &=\dfrac{1}{2}\int_{0}^{\pi}sen(2x)dx\\
+ &=0.
+\end{align*}
+Logo, o conjunto $\{ sen(x), cos(x)\}$ é um conjunto ortogonal de   $\mathcal{C}[0,\pi]$.
+
+
+\end{enumerate}
+
+\subsection {\textbf{Base Ortogonal e Base Ortornormal}}
+
+Vetores ortogonais são linearmente independentes.  Este fato será estabelecido pelo próximo teorema.
+
+\vspace{0.7cm}
+\textbf{Teorema 1.} Seja $V$ um espaço vetorial com produto interno e $\{v_1, v_2,...,v_n\}$ um conjunto de vetores de $V$  dois a dois ortogonais. Então, $\{v_1, v_2,...,v_n\}$  é um conjunto  linearmente independentes.
+
+\textbf{\textit{Demonstração.}} \textit{Aula.}
+
+
+
+\vspace{0.7cm}
+\textbf{Definição (Base Ortogonal).} Uma base  $ \beta =\{v_1, v_2,...,v_n\}$  de $ V$ é dita ser uma \textit{base ortogonal} se os vetores de $\beta$  são dois a dois ortogonais. Isto é,  $ \beta =\{v_1, v_2,...,v_n\}$ é uma base ortogonal de $V$  se  $$ \langle v_i, v_j \rangle=0$$
+para todo $i \neq j$.
+
+
+
+
+\vspace{0.7cm}
+\textbf{Definição (Base Ortonormal).} Uma base  $ \beta =\{v_1, v_2,...,v_n\}$  de $ V$ é dita ser uma \textit{base ortonormal} se  $\beta$  é uma base ortogonal e os seus vetores são unitários.  Isto é,  $ \beta =\{v_1, v_2,...,v_n\}$ é uma base ortonormal  de $V$  se
+$$ \langle v_i, v_j \rangle =\left\{
+ \begin{array}{ccc}   0,&  & \text{se} \; \; i \neq j \\ 1, && \text{se}\; \;  i=j.\end{array}\right.$$
+
+
+
+
+\subsection {\textbf{Coefiecientes de Fourier}}
+
+Se $V$ é um espaço vetorial com produto interno e $ \beta =\{v_1, v_2,...,v_n\}$  é uma base ortogonal de $V$, então  cada vetor $ v \in V$ pode ser escrito como
+
+\begin{align}
+v=\dfrac{\langle v, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 +\dfrac{ \langle v, v_2 \rangle }{\langle v_2, v_2 \rangle}v_2+...+ \dfrac{\langle v, v_n \rangle}{\langle v_n, v_n \rangle} v_n
+\end{align}
+
+Os coeficientes  $\dfrac{\langle v, v_i \rangle}{\langle v_i, v_i \rangle}$ para cada $i=1,2,...,n$ são chamados de \textit{coeficientes de Fourier}. Note que  no  caso de  $ \beta =\{v_1, v_2,...,v_n\}$  ser uma base ortornormal, como os vetores $v_i$ são unitários, então a combinação linear de $v$ fica
+
+\begin{align}
+v={\langle v, v_1 \rangle} v_1 +{ \langle v, v_2 \rangle }v_2+...+{\langle v, v_n \rangle} v_n.
+\end{align}
+
+\subsection{Exemplos}
+\begin{enumerate}
+\item As bases canônicas  $\{ e_1, e_2\}$ de $\mathbb{R}^2$, $\{ e_1, e_2, e_3\}$ de $\mathbb{R}^3$,....,$\{ e_1, e_2, ..., e_n\}$  de  $\mathbb{R}^n$ são exemplos de bases ortornormais, onde esses espaços são considerados com o produto interno usual.
+
+\item  Considere os vetores $u=(\dfrac{\sqrt{2}}{2},\dfrac{\sqrt{2}}{2}, 0)$, $v= (-\dfrac{\sqrt{2}}{2},\dfrac{\sqrt{2}}{2}, 0)$ e $w= (0, 0, 1)\}$  de $\mathbb{R}^3$.
+
+\begin{align*}
+\langle u, v \rangle &= \dfrac{\sqrt{2}}{2}\times (-\dfrac{\sqrt{2}}{2}) +\dfrac{\sqrt{2}}{2} \times\dfrac{\sqrt{2}}{2}+0 \times 0=0 \\
+\langle u, w \rangle &=  \dfrac{\sqrt{2}}{2}\times 0 +\dfrac{\sqrt{2}}{2} \times 0+0 \times 1=0 \\
+\langle v , w\rangle &= -\dfrac{\sqrt{2}}{2}\times 0 +\dfrac{\sqrt{2}}{2} \times 0+0 \times 1=0
+\end{align*}
+
+Logo os vetores $u$, $v$ e $w$ são  dois a dois ortogonais,  e assim  o conjunto $\{ u, v, w\}$ é uma base ortogonal de $\mathbb{R}^3$. Além disso, pode ser facilmente verificado que que esses vetores são unitários. Dessa forma, a  base  $\{ u, v, w\}$ é ortonormal.
+
+
+Sabendo-se que essa base é ortonormal, o vetor $x= (1, 1, 1)$ pode ser escrito como combinação linear dessa base do seguinte modo
+
+\begin{align*}
+x &= \langle x, u \rangle u + \langle x, v \rangle v+ \langle x, w \rangle w. \\
+\end{align*}
+
+Efetuando os cálculos dos coeficientes de Fourier, obtemos
+\begin{align*}
+\langle x, u\rangle &= 1\times \dfrac{\sqrt{2}}{2} +1 \times \dfrac{\sqrt{2}}{2} + 1 \times 0= \sqrt{2} \\
+\langle x, v \rangle &= 1 \times (- \dfrac{\sqrt{2}}{2}) +1 \times \dfrac{\sqrt{2}}{2}+ 1 \times 0=0 \\
+\langle x , w\rangle &= 1\times 0 +1 \times 0+1 \times 1=1
+\end{align*}
+
+Portanto, $x$ escrito como combinação linear dos vetores $u$, $v$ e $w$ fica
+
+\begin{align*}
+x &= \sqrt{2} u + 0 v+ 1w,\\
+  & =\sqrt{2} u +w.
+\end{align*}
+
+
+\end{enumerate}
+
+\subsection{Exercícios Propostos}
+\begin{enumerate}
+
+\item Dados os vetores $u=(1,1,1,1)$ e $v=(1, 2, 3, 4)$ do $\mathbb{R}^4$, use o produto interno canônico para calcular
+\begin{enumerate}%[\label=(\alph*)]
+\item $\langle u, v \rangle$
+\item  $||u||$
+\item  $||v||$
+\item O ângulo entre $u$ e $v$.
+\end{enumerate}
+
+\item Determine a norma de $p(t)=t^2-t +2$, usando o produto interno usual de $\mathcal{C}[0,1]$.
+\item Definimos a \textit{distância entre os vetores} $u$ e $v$ como sendo o número real dado por $$d(u,v)=||u-v||.$$
+
+\begin{enumerate}%[\label=(\alph*)]
+\item Calcule a distância entre os vetores $u$ e $v$ do item (1).
+\item Mostre que $d(u,0)=||u||$ para todo $ u \in V$.
+\end{enumerate}
+\item Seja  $V$ um espaço vetorial  com produto interno. Mostre que $$||u+v||^2=||u||^2+2\langle u, v \rangle+ ||v||^2, $$ e  que $$||u-v||^2=||u||^2-2\langle u, v \rangle+ ||v||^2.$$
+
+\item Sejam  $V$ um espaço com produto interno e vetores $u$ e $v$ de $V$ tais que $||u||=1$,  $||v||=2$ e $||u-v||=5$. Determine $\langle u, v \rangle$.
+
+\item Mostre que, em um espaço vetorial com produto interno $V$,   $$\dfrac{1}{4}||u+v||^2- \dfrac{1}{4}||u-v||^2=\langle u, v \rangle.$$
+
+\item Mostre que os vetores $v$ e $u-\dfrac{\langle u, v \rangle}{||v||^2}v$ são ortogonais.
+
+\item Mostre que $$||u+v||^2=||u||^2+||v||^2 + 2||u||\times ||v|| cos(\theta). $$  ( \textit{Lei dos cossenos})
+
+\item Se $u$ e $v$ são vetores ortogonais, mostre que
+\begin{enumerate}
+\item $||u+v||^2=||u||^2+||v||^2$
+\item $||u+v||=||u-v||$
+\end{enumerate}
+
+\item Seja $V$ um espaço vetorial com produto interno a $\alpha = \{v_1, v_2, v_3 \}$ uma base ortonormal de $V$. Seja $ T: V \rightarrow V$ uma transformação linear. Mostre que
+
+$$ [T]_{\alpha}^{\alpha}=\left[ \begin{array}{ccc}
+\langle T(v_1), v_1\rangle &\langle  T(v_2), v_1\rangle  & \langle T(v_3), v_1\rangle \\
+\langle T(v_1), v_2 \rangle &\langle T(v_2), v_2 \rangle  & \langle  T(v_3), v_2\rangle \\
+\langle T(v_1), v_3 \rangle &\langle T(v_2), v_3\rangle  & \langle T(v_3), v_3\rangle    \end{array} \right]. $$
+
+\end{enumerate}
+
+\section{Processo de Ortogonalização de Gram-Schmidt}
+
+
+Esse processo gera uma base ortonormal  do espaço vetorial $V$ a partir de uma base qualquer.
+
+Seja $ \alpha =\{u_1, u_2,...,u_n\}$ uma  base qualquer do espaço vetorial  $V$.  Primeiro o processo gera uma base  $ \beta =\{v_1, v_2,...,v_n\}$ ortogonal, do seguinte modo:
+
+\begin{align}
+v_1 &= u_1 \nonumber\\
+v_2&= u_2 - \dfrac{\langle u_2, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1  \nonumber\\
+v_3 &= u_3 -   \dfrac{ \langle u_3, v_2 \rangle }{\langle v_2, v_2 \rangle}v_2 - \dfrac{\langle u_3, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 \nonumber\\
+\vdots& = \vdots \\
+v_n & = u_n -   \dfrac{ \langle u_n, v_{n_1} \rangle }{\langle v_{n-1}, v_{n-1} \rangle}v_{n-1} - ...- \dfrac{ \langle u_n, v_2 \rangle }{\langle v_2, v_2 \rangle}v_2- \dfrac{\langle u_n, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 .\nonumber
+\end{align}
+
+Em seguida, normalizando cada um dos vetores $v_i$, isto é, fazendo
+$w_1 = \dfrac{v_1}{||v_1||}$ , $w_2= \dfrac{v_2}{||v_2||}$,...., $ w_n = \dfrac{v_n}{||v_n||}$, obtemos  o conjunto  $$\gamma =\{ w_1, w_2, ..., w_n \}$$ que é uma base ortonormal de $V$.
+
+
+%
+%\begin{align}
+%w_1 &= \dfrac{v_1}{||v_1||} \nonumber\\
+%w_2 &= \dfrac{v_2}{||v_2||} \nonumber\\
+%w_3 &= \dfrac{v_3}{||v_3||} \nonumber\\
+%\vdots& = \vdots \\
+%w_n &= \dfrac{v_n}{||v_n||} \nonumber\\
+%\end{align}
+%
+%
+% obtemos uma base ortonormal para $V$.
+\subsection{Exemplos}
+
+\begin{enumerate}
+\item Use o processo de ortogonalização de Gram-Schmidt para obter uma base ortonormal de $\mathbb{R}^3$ a partir da base $ \{ (1,1,1), (1,1,0), (1,0,0)\}$.
+
+%\textbf{\textit{Demonstração.}} \textit{Aula.}
+
+\end{enumerate}
+
+\section{Complemento Ortogonal}
+
+Seja $V$ um espaço vetorial com produto interno e $S$ um subconjunto  não vazio de $V$. O  \textit{complementar ortogonal } de $S$ em $V$ é o conjunto
+$$ S^{\perp}=\{ v \in V; v \perp u, \text{ para todo} \; u \in S\}.$$
+Isto é, $S^{\perp}$ é formado por todos os vetores de $V$ que são ortogonais a todos os vetores de $S$.
+
+
+
+\vspace{0.7cm}
+\noindent \textbf{Observações.}
+
+\begin{enumerate}
+\item  $S^{\perp}$ é um subespaço vetorial ( ainda que $S$ não seja).
+\item Quando $S$ também é um subespaço vetorial de $V$, temos  $$V=S\oplus S^{\perp}.$$
+
+\item   $\{0\}^{\perp}=V$ e $V^{\perp}=\{0\}$
+\end{enumerate}
+
+\subsection{Exemplos}
+
+\begin{enumerate}
+\item Seja $S=\{ (x,x); x \in \mathbb{R}\}=[(1,1)].$ Para determinar o complemento ortogonal de $S$ devemos determinar todos os vetores $(x,y) \in \mathbb{R}^2$ tal que $$ \langle (x,y), (1,1) \rangle =0.$$  Daí, obtemos $x+y=0$, o que implica $y=-x$. Sendo assim, obtemos $$S^{\perp}=\{ (x,-x); x \in \mathbb{R}\}=[(1,-1)].$$
+
+\item Seja $W$ o subespaço de $\mathbb{R}^4$ gerado pelo vetores $( 1, 1,-1, 0)$ e $(-1, 1, 0,1)$. Determinar  $W^{\perp}$.
+
+\textbf{\textit{Resolução.}} Precisamos determinar todos os vetores $(x, y, z, w) \in \mathbb{R}^4$ tais que
+\begin{align*}
+\langle (x, y, z, w),  ( 1, 1,-1, 0) \rangle = 0,\\
+\langle (x, y, z, w),  (-1, 1, 0,1) \rangle = 0.
+\end{align*}
+Daí, obtemos
+\begin{align*}
+ x+ y - z =0,\\
+-x+ y+ w = 0.
+\end{align*}
+\end{enumerate}
+
+De onde obtemos, $z=x+y$ e $w=x-y$. Assim, $$ W^{\perp}=\{(x, y, x+y, x-y); x, y \in \mathbb{R}\}=[(1,0, 1,1),(0,1,1,-1)].$$
+
+\section{Exercícios Propostos}
+\begin{enumerate}
+
+
+\item Seja $\beta=\{ (1,1,1), (1,1,0), (1,0,0)\}$. Use o processo de Gram-Schmidt para obter uma base ortonormal de $\mathbb{R}^3$, em relação ao produto interno usual.
+
+
+\item Seja $\beta=\{ (1,1,1), (1,-1,1), (1,1,-1)\}$. Use o processo de Gram-Schmidt para obter uma base ortonormal de $\mathbb{R}^3$, em relação ao produto interno usual.
+
+\item Determine uma base ortonormal, em relação ao produto interno usual,  para o subespaço $$W=\{(x,y,z) \in \mathbb{R}^3; x-y+z=0\}.$$
+
+
+\item $W \in \mathbb{R}^3$ o subespaço gerado pelos vetores $(1,0,1)$ e $(1,1,0)$. Determine uma base para $W^{\perp}$ (usando o produto interno usual).
+%    \begin{enumerate}
+%     \item
+%       \item  Determine uma base para $W^{\perp}$ (usando o produto interno ).
+%     \end{enumerate}
+\item Considere o subespaço $W \in \mathbb{R}^3$ gerado pelos vetores  $u=(1,0,0)$, $v=(0,1,1)$  e $w=(1,-1,-1)$.  Considerando o produto interno usual do $\mathbb{R}^3$
+
+      \begin{enumerate}
+     \item Determine $W^{\perp}$;
+       \item  Determine uma  transformação linear $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ tal que $Im(T)=W$ e $Ker(T)=W^{\perp}$.
+     \end{enumerate}
+
+\item Seja $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ um operador linear   definido por $$T(x,y,z)=(x,x-y, -z).$$ e $W=Ker(T)$.  Usando o produto interno usual, determine uma base ortonormal para $W^{\perp}$.
+\end{enumerate}
+
+\section{Exercícios Gerais}
+\begin{enumerate}
+  \item No espaço vetorial $\mathcal{P}_2(\mathbb{R})$.
+    \begin{enumerate}[label=(\alph*)]
+      \item  Mostre que a função  que a função $$\langle a_0+a_1x+a_2x^2, b_0+b_1x+b_2x^2 \rangle = a_0b_0+a_1b_1+a_2b_2$$  é um produto interno.
+      \item Mostre que $ \{1, x , x^2 \} $, a base canônica de $\mathcal{P}_2(\mathbb{R})$,  é ortonormal em relação a esse produto interno.
+      \item Mostre que $ \{1, x , x^2 \} $, a base canônica de $\mathcal{P}_2(\mathbb{R})$,  não é ortonormal em relação ao produto interno canônico de $\mathcal{C}[0,1]$.
+      \item Use o processo de ortogonalização de Gram-Schmidt para ortogonalizar a base $ \{1, x , x^2 \} $ em relação ao produto interno canônico de $\mathcal{C}[0,1]$.
+    \end{enumerate}
+
+  \item  Considere em  $\mathbb{R}^3$  o produto interno definido por  $$\langle (x_1, x_2,x_3), (y_1, y_2, y_3) \rangle = x_1y_1+5x_2y_2+2x_3y_3 .$$
+    \begin{enumerate}
+      \item Verifique que $\langle, \rangle $ é mesmo um produto interno.
+      \item Verifique que o conjunto  $\{ (1,0,0), (0,1,0), (0,0,1)\}$ não é ortogonal em relação  a esse produto interno.
+      \item  A partir da base $\{ (1,0,0), (0,1,0), (0,0,1)\}$,  obtenha uma base ortonormal para $\mathbb{R}^3$, em relação a esse produto interno.
+    \end{enumerate}
+
+  \item Sejam $A$ e $B$ matrizes de $\mathcal{M}(2,2)$.
+    \begin{enumerate}
+       \item Verifique que $\langle A, B\rangle = tr(B^TA) $ é mesmo um produto interno em $\mathcal{M}(2,2)$. (Veja a definição da função traço na seção de exemplos 2.1)
+       \item  Determine uma  base ortonormal, segundo esse produto interno, a partir da base
+        $$
+        \left\{   \left[\begin{array}{cc} 1&0  \\ 0&  1  \end{array}\right],  \left[\begin{array}{cc} 1&1  \\0 &  0  \end{array}\right],  \left[\begin{array}{cc}1 &0  \\ 1&  1  \end{array}\right],  \left[\begin{array}{cc} 1& 1 \\ 1&1    \end{array}\right]
+        \right\}.
+        $$
+    \end{enumerate}
+\end{enumerate}
+
+\section{Respostas}
+
+\subsection{Exercícios 3.10}
+
+\begin{enumerate}
+  \item
+  \begin{enumerate}[label=(\alph*)]
+    \item 10.
+    \item 2.
+    \item $\sqrt{30}$.
+    \item $\theta=arccos(\sqrt{30}/6)$.
+  \end{enumerate}
+
+  \item $||p(t)||= \sqrt{15/2}$.
+    \begin{enumerate}[label=(\alph*)]
+      \item $\sqrt{14}$.
+      \item Como $d(u,v)=||u-v||$, então $d(u, 0)=||u-0||=||u||$, para todo $ u \in V$.
+    \end{enumerate}
+
+  \item $\langle u, v \rangle = -10$.
+\end{enumerate}
+
+\subsection{Exercícios 6}
+
+\begin{enumerate}
+  \item Sabendo que $W=[(1,0,-1), (0, 1,1)]$ use o processo de ortogonalização de Gram-Schmidt para obter a base solicitada.
+  \item $W^{\perp}=[(1,-1,-1)]$.
+  \item $W^{\perp}=\mathbb{R}^3$.
+\end{enumerate}

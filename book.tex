@@ -1,0 +1,75 @@
+\documentclass[a4paper,brazil,%
+12pt,
+%oldfontcommands,%
+%showtrims,%
+openright,
+twoside,
+%oneside
+%draft
+]{memoir}
+
+\usepackage{bookpemd}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\newcommand{\subscript}[2]{$#1 _ #2$}
+
+
+%\usepackage{indentfirst}
+%\usepackage{showkeys}
+
+%\usepackage{makeidx}
+%\makeindex
+
+\includeonly{%
+chapters/espaco_vetorial/main,%
+chapters/subespacos_vetoriais/main,
+chapters/combinacao_linear/main,
+chapters/base_dimensao/main,
+chapters/mudanca_base/main,
+chapters/matriz_trans_linear/main,
+chapters/transformacoes_lineares/main,
+chapters/autovalores_autovetores/main,
+chapters/espacos_produto_interno/main,
+chapters/operadores_especiais/main,
+}
+
+
+%\overfullrule=5pt  % if a draft
+\begin{document}
+\frontmatter                            % only in book class (roman page #s)
+{\contracapa{Notas de Aula de}{Álgebra Linear}
+	{Volume I}
+	{Lino Marcos da Silva}
+	{lino.silva@univasf.edu.br}}
+
+\newpage
+% {\copyr}
+
+% {\fichacat}
+\tableofcontents*
+%\addcontentsline{toc}{chapter}{Sumário}
+\mainmatter                             % only in book class (arabic page #s)
+\frenchspacing % remover espaço extra
+
+\include{chapters/espaco_vetorial/main}
+\include{chapters/subespacos_vetoriais/main}
+\include{chapters/combinacao_linear/main}
+\include{chapters/base_dimensao/main}
+\include{chapters/mudanca_base/main}
+\include{chapters/matriz_trans_linear/main}
+\include{chapters/transformacoes_lineares/main}
+\include{chapters/autovalores_autovetores/main}
+\include{chapters/espacos_produto_interno/main}
+\include{chapters/operadores_especiais/main}
+
+%%%%%%% INDEX
+\pagestyle{empty}\printindex\thispagestyle{empty}%
+%
+\end{document}

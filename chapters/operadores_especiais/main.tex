@@ -1,0 +1,258 @@
+\chapter{Operadores Especiais}
+\thispagestyle{empty}
+
+\section{Introdução}
+
+Nesta seção serão estudados dois tipos de operadores especiais.  Trata-se do operador simétrico e do operador  ortogonal. Esses operadores possuem interessantes propriedades teóricas e são muito utilizados na modelagem e resolução de vários  problemas práticos.
+
+Uma boa característica desses operadores é que as suas matrizes,  em relação à qualquer base ortonormal do espaço, são tipos bem especiais de matrizes. Por isso, antes de estudar tais operadores, começaremos revendo os conceitos e propriedades de matrizes simétricas e  matrizes ortogonais.
+
+\textbf{Definição.} Seja $A$ uma matriz quadrada de ordem $n$ e $A^T$ a sua transposta. Dizemos que $A$ é uma \textit{matriz simétrica} se $$A^T=A$$ e que $A$ é uma \textit{matriz ortogonal} se $$A^TA=AA^T=I_n.$$
+
+Observe que a matriz  inversa de uma matriz ortogonal é sua transposta.
+
+ \subsection{Propriedades das matrizes ortogonais}
+
+As propriedades a seguir apresentam  outras caracterizações de matrizes ortogonais e facilitam a tarefa de determinar se uma dada matriz é ou não ortogonal.
+
+\begin{enumerate}
+\item Se $A$ é uma matriz ortogonal de ordem $n$. Então,  $det(A)=-1$ ou $det(A)=1$;
+\item $A$ é uma matriz ortogonal  se, e somente se, as colunas (ou linhas) $A$ são vetores ortonormais.
+\end{enumerate}
+
+\subsection{Exemplos}
+
+\begin{enumerate}
+\item A matriz  $R=\left[ \begin{array}{cc}cos\theta &sen\theta \\-sen\theta & cos\theta   \end{array} \right]$ é uma matriz ortogonal. De fato,  calculando $RR^T$, obtemos
+
+$$RR^T=\left[ \begin{array}{cc}cos\theta &sen\theta \\-sen\theta & cos\theta   \end{array} \right]\left[ \begin{array}{cc}cos\theta &-sen\theta \\sen\theta & cos\theta   \end{array} \right]= \left[ \begin{array}{cc}1 & 0\\0 & 1   \end{array} \right].$$
+Como $RR^T=I_2$, então, por definição, $R$ é uma matriz ortogonal. Outra maneira de verificar que a matriz $R$ é ortogonal,  seria constatar que as suas colunas  formam um conjunto de  vetores ortonormais do $\mathbb{R}^2$.
+
+\item A matriz $A=\left[ \begin{array}{cc} 1 &-1\\-1& 1  \end{array} \right]$ não pode ser ortogonal. De fato, $det(A)=2$.
+
+\item A matriz $B=\left[ \begin{array}{cc} 1 &-1\\0& 1  \end{array} \right]$  é tal que $det(B)=1$. Porém, como  a condição $det(A)= 1$ ou $det(A)=-1$ não é suficiente  para garantir que $A$ seja ortogonal, não podemos afirmar que $B$ é uma matriz ortogonal.  De fato,  $B$ não é  uma matriz ortogonal pois, segundo o produto interno usual de $\mathbb{R}^2$, a segunda coluna da matriz não é um vetor unitário.
+
+\end{enumerate}
+
+\section{Operador Simétrico}
+
+
+\textbf{Definição (Operador Simétrico).} Seja $V$ um espaço vetorial com  produto interno,  $\alpha$  uma  base ortonormal de $V$  e $T: V \rightarrow V$  um operador linear. Dizemos que o operador  $T$ é um \textit{operador simétrico} se $[T]_{\alpha}^{\alpha}$ é uma matriz simétrica.
+
+
+\vspace{0.7cm}
+\noindent \textbf{Observações.}
+
+\begin{enumerate}
+\item   O operador simétrico é também chamado de operador \textit{ auto-adjunto}.
+
+\item   A definição independe da escolha da base ortonormal $\alpha$.
+\end{enumerate}
+
+\subsection{Exemplos}
+\begin{enumerate}
+
+\item $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ definido por $T(x,y,z)=( 2x-y+z, -x+3y-z, x-y+4z)$. Note que
+ $[T]= \left[ \begin{array}{ccc}2 &-1 & 1\\ -1 & 3& -1 \\ 1 & - 1& 4  \end{array} \right]$ é uma matriz simétrica. Logo $T$ é um operador simétrico.
+
+ \item Determine um operador $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ que seja simétrico.
+
+\noindent \textbf{Resolução.}
+
+De acordo com a definição, basta apenas considerar uma matriz simétrica  de ordem 2 qualquer. Por exemplo,  a  matriz $A=\left[ \begin{array}{cc} 1 &-2\\-2& 1  \end{array} \right]$  é simétrica. Podemos definir então o operador linear  $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ tal que $$T_A(x,z)=\left[ \begin{array}{cc} 1 &-2\\-2& 1  \end{array} \right]\left[ \begin{array}{c} x \\y  \end{array} \right].$$ Isto é, $T_A(x,z)=(x-2y, -2x+y)$. Em relação à base canônica do $\mathbb{R}^2 $, que é ortonormal, $$[T_A]=\left[ \begin{array}{cc} 1 &-2\\-2& 1  \end{array} \right].$$ Isto é, $T_A$ é um operador simétrico.
+\end{enumerate}
+
+ \subsection{Propriedades dos Operadores Simétricos.}
+Nos teoremas seguintes, considere  $V$ um espaço vetorial no qual está definido um produto interno $\langle, \rangle$.
+
+\vspace{0.7cm}
+\begin{thm}  $T:  V \rightarrow V$  é um operador simétrico se, e somente se, $$\langle T(v), w \rangle= \langle v, T(w) \rangle$$ para todo $u,v \in V$.
+\end{thm}
+\vspace{0.7cm}
+
+\begin{thm}  Se $T: V \rightarrow V$ é um operador simétrico e $\lambda_1$ e $\lambda_2$ são autovalores distintos de $T$ e $v_1$ e $v_2$ autovetores associados a  $\lambda_1$ e $\lambda_2$, respectivamente, então $ v_1 \perp v_2$.
+\end{thm}
+\vspace{0.3cm}
+
+\noindent \textbf{Demonstração.}
+\textit{Sejam $\lambda_1$ e $\lambda_2$ autovalores distintos de $T$ e suponha que $v_1$ e $v_2$ são  tais que $T(v_1)=\lambda_1v_1$ e  $T(v_2)=\lambda_2v_2$. Do Teorema 1, temos que}
+\begin{align*}
+\langle T(v_1), v_2 \rangle &= \langle v_1, T(v_2) \rangle \\
+\langle \lambda_1v_1, v_2 \rangle &= \langle v_1, \lambda_2v_2 \rangle \\
+ \end{align*}
+
+Logo, $ \lambda_1\langle v_1, v_2 \rangle - \lambda_2 \langle v_1, v_2 \rangle= 0 $. De onde obtemos, $ ( \lambda_1 - \lambda_2) \langle v_1, v_2 \rangle= 0$. Como, $\lambda_1 \neq \lambda_2$, então $\langle v_1, v_2 \rangle= 0$, e portanto, $v_1$ e $v_2$ são ortogonais. \textbf{C.Q.D.}
+
+\vspace{0.7cm}
+
+
+
+
+O próximo teorema é um dos teoremas mais importantes da Álgebra Linear. O mesmo estabelece que operadores simétricos são diagonalizáveis. Isto é, se $V$ é um espaço vetorial com produto interno e se $T:  V \rightarrow V$  e um operador simétrico, então  existe uma base ortonormal de $V$ formada por autovetores de $T$.
+
+
+\vspace{0.7cm}
+
+
+\begin{thm} {\textbf{(Teorema Espectral.)}}
+Seja $T:  V \rightarrow V$ um operador Simétrico. Então, existe uma base ortonormal  de $V$ formada por autovetores de $T$.
+\end{thm}
+
+
+É importante ressaltar que dizer que existe uma base $\alpha$ de $V$ formada por autovetores de $T$ é equivalente a dizer que existe uma base $\alpha$  de $V$, em relação a qual, a matriz $[T]_{\alpha}^{\alpha}$ é diagonal. Assim, concluimos que um operador simétrico é diagonalizável, e além disso,  $V$ admite uma base ortonormal  de  autovetores de $T$.
+\vspace{0.7cm}
+\begin{thm}{\textbf{(Teorema Espectral, versão matricial.)}}
+
+Se  $A \in \mathcal{M}(n,n)$   é  simétrica,  então existe uma matriz  $P \in \mathcal{M}(n,n)$ que é  ortogonal e tal que $$P^{-1}AP$$ é uma matriz diagonal.
+\end{thm}
+
+
+Como a matriz $P$ deve ser  ortogonal, então por definição,  $P^{-1}=P^T$.  Dessa forma, podemos reescrever o Teorema Espectral para matriz da seguinte forma:
+
+ \vspace{0.3cm}
+\textit{Se  $A \in \mathcal{M}(n,n)$   é  simétrica,  então existe uma matriz  $P \in \mathcal{M}(n,n)$ que é  ortogonal e tal que $$P^{T}AP$$ é uma matriz diagonal.}
+
+Na prática a matriz $P$ é formada calculando-se os autovalores ortonormais da matriz $A$.
+\subsection{Exercícios Propostos}
+\begin{enumerate}
+\item Seja $\mathbb{R}^2$  com o produto interno usual. Suponha que $T: \mathbb{R}^2  \rightarrow  \mathbb{R}^2$  é um operador simétrico  tal que
+$$A=[T]=\left[ \begin{array}{cc}-1 &1 \\1 & -1   \end{array} \right].$$  Determine uma matriz $P$ tal que $P^{-1}AP$ seja uma matriz diagonal.
+
+\item Seja $\mathbb{R}^3$  com o produto interno usual. Suponha que $T: \mathbb{R}^3  \rightarrow  \mathbb{R}^3$  é um operador simétrico  tal que
+$$A=[T]=\left[ \begin{array}{ccc}-1 &1&2 \\1 & -1 &2 \\2 & 2& 2  \end{array} \right].$$  Determine uma matriz $P$ tal que $P^{-1}AP$ seja uma matriz diagonal.
+
+\item Seja $V$ um espaço vetorial com produto interno a $\alpha = \{v_1, v_2, v_3 \}$ uma base ortonormal de $V$. Seja $ T: V \rightarrow V$ um operador simétrico. Mostre que
+
+$$ [T]_{\alpha}^{\alpha}=\left[ \begin{array}{ccc}
+\langle T(v_1), v_1\rangle &\langle  T(v_1), v_2\rangle  & \langle T(v_1), v_3\rangle \\
+\langle T(v_1), v_2 \rangle &\langle T(v_2), v_2 \rangle  & \langle  T(v_2), v_3\rangle \\
+\langle T(v_1), v_3 \rangle &\langle T(v_2), v_3\rangle  & \langle T(v_3), v_3\rangle    \end{array} \right]. $$
+\end{enumerate}
+
+\section{Operador Ortogonal}
+
+\textbf{Definição (Operador Ortogonal).} Seja $V$ um espaço vetorial com  produto interno,  $\alpha$  uma  base ortonormal de $V$  e $T: \mathbb V \rightarrow V$  um operador linear. Então $T$ é chamado de \textit{operador ortogonal} se $[T]_{\alpha}^{\alpha}$ é uma matriz ortogonal.
+
+
+
+%\begin{enumerate}[label=(\roman*)]%[label=(\alph*)]
+%\item  $\langle u, u\rangle  \geq 0$  e  $\langle u, u \rangle = 0$  se, e somente se, $u=0$.
+%\item  $\langle u, v\rangle  = \langle v, u \rangle$ para quaisquer $u, v \in V$.
+%\item $\langle u+w, v\rangle  = \langle u, v \rangle + \langle u, w \rangle $ para quaisquer $u, v $ e $ w \in V$.
+%\item $\langle k u, v \rangle = k \langle  u, v \rangle$ para todo $ k \in \mathbb{R}$ e para quaisquer $ u, v \in V$.
+%\end{enumerate}
+
+
+
+
+
+\subsection{Exemplos}
+
+\begin{enumerate}
+\item Considere o operador rotação $ T: \mathbb{R}^2 \rightarrow \mathbb{R}^2 $  o qual é  definido por $$T(x,y)=(xcos\theta + y sen\theta, -xsen\theta+ycos\theta). $$
+$T$ é um operador ortogonal. De fato,  a matriz de $T$ em relação a base canônica do $\mathbb{R}^2$, é
+
+$$[T]_{\alpha}^{\alpha}=\left[ \begin{array}{cc}cos\theta &sen\theta \\-sen\theta & cos\theta   \end{array} \right].$$ Sejan $u_1$ e $u_2$ a primeira e a segunda coluna de $[T]$, respectivamente, temos o seguinte:
+
+\begin{align*}
+\langle u_1, u_2\rangle&=  \langle (cos\theta, -sen\theta), (sen\theta, cos\theta )\rangle= cos\theta sen\theta - sen\theta cos\theta = 0\\
+\langle u_1, u_1\rangle&=  \langle (cos\theta, -sen\theta), (cos\theta, -sen\theta )\rangle= cos^2\theta+ sen^2\theta=1\\
+\langle u_2, u_2\rangle&=  \langle (sen\theta, cos\theta), (sen\theta, cos\theta )\rangle= sen^2\theta+ cos^2\theta=1.
+\end{align*}
+
+Assim  as colunas da matriz $[T]$ são vetores ortonormais, logo $[T]$ é uma matriz ortogonal e  portanto,  $T$ é um operador ortogonal.
+
+\end{enumerate}
+
+\subsection{Caracterização de Operadores Ortogonais}
+
+O Teorema a seguir apresenta uma caracterização para os operadores ortogonais. Dessa forma, conheceremos várias maneiras diferentes de reconhecer um operador dessa categoria. Uma das principais características desses operadores é que os mesmos preservam produto interno. Este é um dos motivos pelos quais esses operadores estão associado a movimentos rígidos.
+
+
+\vspace{0.7cm}
+ {\textbf{Teorema (Caracterização de Operadores Ortogornais) }
+
+ Seja $T:  V \rightarrow V$  um operador linear em um espaço vetorial $V$ com  produto interno.  Então, as condições abaixo são equivalentes.
+\begin{enumerate}
+\item $T$ é ortogonal.
+\item $T$ transforma base ortonormal em base ortonormal.
+\item   $\langle T(u), T(v) \rangle=\langle u, v \rangle$ para todo $u, v \in V$. ($T$  preserva produto interno).
+\item   $||T(u)||=||u||$  para todo $u \in V$ ($T$  preserva norma).
+\end{enumerate}
+
+\section{Exercícios Propostos}
+\begin{enumerate}
+
+
+\item Dentre os operadores lineares a  seguir, verificar quais são ortogonais.
+\begin{enumerate}
+\item  $T: \mathbb{R}^2  \rightarrow  \mathbb{R}^2$  definido por $T(x,y)=(-y, -x)$.
+\item $T: \mathbb{R}^2  \rightarrow  \mathbb{R}^2$  definido por $T(x,y)=(x-y, x+y)$.
+$T: \mathbb{R}^3  \rightarrow  \mathbb{R}^3$  definido por $T(x,y,z)=(-y, -x)=(z,x,-y)$.
+$T: \mathbb{R}^3  \rightarrow  \mathbb{R}^3$  definido por $$T(x,y,z)=(x, ycos\theta+zsen\theta, -ysen\theta+zcos\theta).$$
+\end{enumerate}
+
+
+\item Considere o $ \mathbb{R}^3 $ com o produto interno usual. Seja $T: \mathbb{R}^3  \rightarrow  \mathbb{R}^3$ um operador linear dado por $T(x,y,z)=(2x+y, x+y+z, y-3z)$.
+\begin{enumerate}
+\item Mostre que $T$ é um operadpr simétrico mas não é ortogonal.
+\item Se $v=(2,-1,5)$ e $w=(3,0,1)$, verifique que $\langle T(v), w \rangle=\langle v, T(w) \rangle$.
+\item Determine uma base ortonormal de $ \mathbb{R}^3 $  formada por  autovetores de $T$.
+\end{enumerate}
+
+
+\item Construa uma matriz ortogonal  $A$ cuja primeira coluna seja os elementos do vetor $(\dfrac{2}{\sqrt{5}}, \dfrac{-1}{\sqrt{5}})$.
+
+\item Construa uma matriz ortogonal  $A$ cuja primeira coluna seja os elementos do vetor $(\dfrac{1}{3}, \dfrac{-2}{3}, \dfrac{-2}{3})$.
+
+\item Mostre que se $T$  é um operador ortogonal, então $T$ é injetivo.
+
+
+
+%\item $W \in \mathbb{R}^3$ o subespaço gerado pelos vetores $(1,0,1)$ e $(1,1,0)$. Determine uma base para $W^{\perp}$ (usando o produto interno usual).
+%%    \begin{enumerate}
+%%     \item
+%%       \item  Determine uma base para $W^{\perp}$ (usando o produto interno ).
+%%     \end{enumerate}
+%\item Considere o subespaço $W \in \mathbb{R}^3$ gerado pelos vetores  $u=(1,0,0)$, $v=(0,1,1)$  e $w=(1,-1,-1)$.  Considerando o produto interno usual do $\mathbb{R}^3$
+%
+%      \begin{enumerate}
+%     \item Determine $W^{\perp}$;
+%       \item  Determine uma  transformação linear $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ tal que $Im(T)=W$ e $Ker(T)=W^{\perp}$.
+%     \end{enumerate}
+%
+%\item Seja $T: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ um operador linear   definido por $$T(x,y,z)=(x,x-y, -z).$$ e $W=Ker(T)$.  Usando o produto interno usual, determine uma base ortonormal para $W^{\perp}$.
+%\end{enumerate}
+%
+%
+%
+%
+%\section{Exercícios Gerais}
+%\begin{enumerate}
+%\item No espaço vetorial $\mathcal{P}_2(\mathbb{R})$.
+%\begin{enumerate}[label=(\alph*)]
+%
+%\item  Mostre que a função  que a função $$\langle a_0+a_1x+a_2x^2, b_0+b_1x+b_2x^2 \rangle = a_0b_0+a_1b_1+a_2b_2$$  é um produto interno.
+%\item Mostre que $ \{1, x , x^2 \} $, a base canônica de $\mathcal{P}_2(\mathbb{R})$,  é ortonormal em relação a esse produto interno.
+%\item Mostre que $ \{1, x , x^2 \} $, a base canônica de $\mathcal{P}_2(\mathbb{R})$,  não é ortonormal em relação ao produto interno canônico de $\mathcal{C}[0,1]$.
+%\item Use o processo de ortogonalização de Gram-Schmidt para ortogonalizar a base $ \{1, x , x^2 \} $ em relação ao produto interno canônico de $\mathcal{C}[0,1]$.
+%
+%\end{enumerate}
+%\item  Considere em  $\mathbb{R}^3$  o produto interno definido por  $$\langle (x_1, x_2,x_3), (y_1, y_2, y_3) \rangle = x_1y_1+5x_2y_2+2x_3y_3 .$$
+%       \begin{enumerate}
+%     \item Verifique que $\langle, \rangle $ é mesmo um produto interno.
+%        \item Verifique que o conjunto  $\{ (1,0,0), (0,1,0), (0,0,1)\}$ não é ortogonal em relação  a esse produto interno.
+%       \item  A partir da base $\{ (1,0,0), (0,1,0), (0,0,1)\}$,  obtenha uma base ortonormal para $\mathbb{R}^3$, em relação a esse produto interno.
+%     \end{enumerate}
+%\item Sejam $A$ e $B$ matrizes de $\mathcal{M}(2,2)$.
+%
+%    \begin{enumerate}
+%       \item Verifique que $\langle A, B\rangle = tr(B^TA) $ é mesmo um produto interno em $\mathcal{M}(2,2)$. (Veja a definição da função traço na seção de exemplos 2.1)
+%       \item  Determine uma  base ortonormal, segundo esse produto interno, a partir da base
+%
+%$$\left\{   \left[\begin{array}{cc} 1&0  \\ 0&  1  \end{array}\right],  \left[\begin{array}{cc} 1&1  \\0 &  0  \end{array}\right],  \left[\begin{array}{cc}1 &0  \\ 1&  1  \end{array}\right],  \left[\begin{array}{cc} 1& 1 \\ 1&1    \end{array}\right]
+%\right\}.$$
+%     \end{enumerate}
+
+
+\end{enumerate}

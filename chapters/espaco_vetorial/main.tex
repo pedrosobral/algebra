@@ -1,0 +1,203 @@
+\chapter{Espaço  Vetorial}
+\thispagestyle{empty}
+
+\section{Introdução}
+\textit{Vetores} são entes matemáticos que se caracterizam por  possuir uma  intensidade,uma direção e um sentido. São utilizados, por exemplo, para representar grandezas físicas, como força e velocidade. No curso de Álgebra Linear, consideramos como  um vetor cada um dos  elementos de um   espaço vetorial.  No  contexto de espaços vetoriais, denominaremos de  \textit{escalar} qualquer elemento de um corpo\footnote{Corpo é uma estrutura matemática na qual está definida duas operações satisfazendo algumas propriedades} $\mathbb{K}$.  Nesse curso, iremos considerar $\mathbb{K}= \mathbb{R}$ (o corpo dos números reais) ou $\mathbb{K}=\mathbb{C}$ (o corpo dos números complexos).  A seguir daremos a definição de um espaço vetorial e apresentaremos alguns exemplos clássicos. Para alguns desses exemplos iremos apresentar a  prova,  de que os  mesmos  são espaços vetoriais,  na sala de aula; para alguns outros as provas serão apresentadas nesse texto e os demais ficarão como exercício para o aluno.   \textbf{Atenção.} \textit{Estas notas de aulas tem como objetivo guiar os alunos nos  estudos da disciplina álgebra linear, nas turmas de minha responsabilidade, nos cursos de engenharia da UNIVASF. O uso das mesmas  não dispensa  a leitura  dos livros didáticos indicados nas referências bibliográficas da disciplina, bem como a resolução de exercícios propostos nos mesmos}.
+
+\section{Espaço Vetorial }
+
+\textit{\textbf{Definição.}} Um conjunto $ V$  não vazio é um espaço vetorial sobre o corpo $\mathbb{K}$  se  em seus elementos,  denominados \textbf{vetores}, estiverem definidas as seguintes duas operações:
+\begin{itemize}
+\item \textbf{Soma de Vetores:} A  cada par   de elementos $u$ e $v$ de $V$ corresponde um vetor  $u+v$, chamado de soma de  $u$ e $v$, satisfazendo,  para quais quer $u$, $v$ e $w$ pertecentes a $V$, as seguintes propriedades:
+
+\begin{enumerate}[label=(\subscript{A}{\arabic*})]
+    \item $u+v=v+u$  (\textit{comutatividade})
+    \item $u+(v+w)=(u+v)+w$  (\textit{associatividade})
+    \item Existe um vetor $\theta \in V$,  denominado \textbf{vetor nulo}, tal que $u+\theta = u$.  (\textit{existência  do elemento neutro})
+   \item Dado o vetor $u\in V$ existe o vetor $-u \in V$, denominado \textbf{vetor oposto}, tal que $u+(-u)=\theta$. (\textit{existência  do elemento simétrico})
+    \end{enumerate}
+
+ \item \textbf{Multiplicação por Escalar:}   A cada par $\alpha \in \mathbb{K}$   e  $v \in V$, corresponde um vetor $\alpha \times v$ , denominado produto por escalar de $\alpha$  por   $V$,  satisfazendo as seguintes propriedades:
+
+\begin{enumerate}[label=(\subscript{ME}{\arabic*})]
+     \item $\alpha \times (u+v)=\alpha \times u+\alpha \times v$
+     \item$(\alpha + \beta) \times u= \alpha \times u+\beta \times u$
+    \item $(\alpha \times \beta) \times u= \alpha (\beta \times u)$
+   \item $1 \times u=u$.
+    \end{enumerate}
+\end{itemize}
+
+Na definição anterior, quando $\mathbb{K}= \mathbb{R}$  dizemos que $V$ é um espaço vetorial real. Por outro lado, se $\mathbb{K}= \mathbb{C}$,   dizemos que $V$ é um espaço vetorial  complexo. Em um espaço vetorial $V$, o elemento neutro e o elemento oposto, das propriedades (A3) e (A4), respectivamente,  quando existem, são únicos.
+
+\section{Exemplos}
+\begin{enumerate}
+
+\item \textbf{Espaço Vetorial Euclidiano.} O conjunto $\mathbb{R}^2=\{(x_1, x_2); x_i \in \mathbb{R}\}$ com as operações usuais de  soma de vetores $$(x_1, x_2)+(y_1, y_2)=(x_1+y_1, x_2+y_2)$$ e a multiplicação por escalar $$\alpha  (x_1, x_2)=(\alpha x_1, \alpha x_2)$$
+é um espaço vetorial real.
+
+
+
+\item O conjunto $\mathbb{R}^3=\{(x_1, x_2, x_3); x_i \in \mathbb{R}\}$ com as operações usuais de  soma de vetores $$(x_1, x_2, x_3)+(y_1, y_2, y_3)=(x_1+y_1, x_2+y_2, x_3+y_3)$$ e a multiplicação por escalar $$\alpha  (x_1, x_2, x_3)=(\alpha x_1, \alpha x_2, \alpha x_3)$$
+é um espaço vetorial real.
+
+\item De um modo geral para $n \geq 1$,  o conjunto $\mathbb{R}^n=\{(x_1, x_2,...,  x_n); x_i \in \mathbb{R}\}$ com as operações usuais de  soma de vetores $$(x_1, x_2,..., x_n)+(y_1, y_2,...,  y_n)=(x_1+y_1, x_2+y_2,..., x_n+y_n)$$ e a multiplicação por escalar $$\alpha  (x_1, x_2,..., x_n)=(\alpha x_1, \alpha x_2,..., \alpha x_n)$$
+é um espaço vetorial real.
+
+Dessa forma,  o  conjunto $\mathbb{R}$ com as operações de adição e multiplicação de números reais, onde nesse caso os vetores  são os números reais, é um espaço vetorial real  (Justifique).
+
+\item \textbf{Espaço Vetorial de Matrizes.} O Conjunto $\mathbb{M}(m,n)$ das matrizes reais de ordem $m \times n$ com a soma  de matrizes e a multiplicação por escalar usuais  é um espaço vetorial real.
+
+\item \textbf{Espaço Vetorial de Polinômios.} O conjunto de polinômios  $\mathbb{P}_n(t)=\{a_nt^n+a_{n-1}t^{n-1}+...+a_2t^2+a_1t+a_0,  \; \; a_i \in \mathbb{R}\}$    com as operações usuais de soma de polinômios
+\begin{align*}
+p(t)+q(t)&=(a_nt^n+ a_{n-1}t^{n-1}+...+a_1t_+a_0)+(b_nt^n+ b_{n-1}t^{n-1}+...+b_1t + b_0)\\
+               &=(a_n+b_n)t^n+(a_{n-1}+b_{n-1})t^{n-1}+...+(a_1+b_1)t+a_0+b_0;
+\end{align*}
+
+ e multiplicação de polinômios por escalar
+\begin{align*}
+\alpha \cdot   p(t)&=(\alpha a_n)t^n+(\alpha a_{n-1})t^{n-1}+...+(\alpha a_1)t+\alpha a_0;
+\end{align*}
+
+
+é um espaço vetorial sobre $\mathbb{R}$.  Em particular,  o conjunto $$\mathbb{P}_2(t)=\{a_2t^2+a_1t+a_0,\; \;\text{com}\; \;  a_2, a_1 \;\; \text{e}\;\; a_0  \in \mathbb{R}\}$$   é um espaço vetorial, relativamente às mesmas operações. A seguir mostraremos que, de fato, $\mathbb{P}_2(t)$ é um espaço vetorial sobre $\mathbb{R}$.
+
+\textbf{\textit{Demonstração.}}  Sejam $p(t)=a_2t^2+a_1t+a_0$, $q(t)=b_2t^2+b_1t+b_0$ e $m(t)=c_2t^2+c_1t+c_0$ elementos de $\mathbb{P}_2(t)$ e considere $\alpha , \beta \in \mathbb{R}$. Vamos mostrar que as operações soma de polinômios e multiplicação de polinômio por escalar possuem  as oitos propriedades da definição de espaço vetorial.
+
+Primeiro vamos verificar que a propriedade (A1) é válida.  De fato,
+\begin{align*}
+p(t)+q(t)&=a_2t^2+a_1t+a_0+b_2t^2+b_1t+b_0\\
+               &=(a_2+b_2)t^2+(a_1+b_1)t+(a_0+b_0)\\
+               &=(b_2+a_2)t^2+(b_1+a_1)t+(b_0+a_0)\\
+               &=q(t)+p(t)
+\end{align*}
+para todo $p(t), q(t) \in  \mathbb{P}_2(t)$. Agora, para mostrar que (A2) também vale, veja que
+\begin{align*}
+(p(t)+q(t))+m(t)&=(a_2+b_2)t^2+(a_1+b_1)t+(a_0+b_0)+c_2t^2+c_1t+c_0\\
+               &=(a_2+b_2+c_2)t^2+(a_1+b_1+c_1)t+(a_0+b_0+c_0)\\
+               &=(a_2+(b_2+c_2))t^2+(a_1+(b_1+c_1))t+(a_0+(b_0+c_0))\\
+               &=\underbrace{a_2t^2+a_1t+a_0}_{p(t)} + (\underbrace{(b_2+c_2)t^2+(b_1+c_1)t+b_0+c_0}_{q(t)+m(t)})\\
+               &=p(t)+(q(t)+m(t)).
+\end{align*} Isto é, a soma de polinômios é \textbf{associativa}.
+
+O \textit{polinômio identicamente nulo} de grau menor ou igual  a 2, $$\theta(t)=0t^2+0t+0,$$   é tal que
+\begin{align*}
+p(t)+\theta(t)&=a_2t^2+a_1t+a_0+0t^2+0t+0\\
+               &=(a_2+0)t^2+(a_1+0)t+(a_0+0)\\
+               &=a_2t^2+a_1t+a_0\\
+               &=p(t),
+\end{align*}
+para todo $p(t) \in \mathbb{P}_2(t)$.  Logo, o polinõmio identicamente $\theta(t)=0t^2+0t+0$ é o  elemento neutro da soma de polinômios em  $\mathbb{P}_2(t)$, e assim a propriedade (A3) também está verificada.
+
+Agora note, que para cada polinômio $p(t)=a_2t^2+a_1t+a_0 \in \mathbb{P}_2(t)$, existe o polinômio $-p(t)=-a_2t^2-a_1t-a_0 \in \mathbb{P}_2(t)$ tal que
+\begin{align*}
+p(t)+(-p(t))&=a_2t^2+a_1t+a_0+( -a_2t^2-a_1t-a_0\\
+               &=(a_2-a_2)t^2+(a_1-a_1)t+(a_0-a_0)\\
+               &=0t^2+0t+0\\
+               &=\theta (t).
+\end{align*}
+Logo, a propriedade (A4) também está verificada.
+
+Agora, para verificarmos a validade das propriedades (ME1)-(ME4), veja que para todo $\alpha, \beta \in \mathbb{R}$ e para todo $p(t), q(t)$ em $\mathbb{P}_2(t)$, temos:
+\begin{align*}
+\alpha(\beta (p(t)))&=\alpha( \beta (a_2t^2+a_1t+a_0))\\
+               &=\alpha( \beta a_2t^2+\beta a_1t+\beta a_0)\\
+               &=\alpha \beta a_2t^2+\alpha \beta a_1t+\alpha \beta a_0\\
+               &=(\alpha \beta )(a_2t^2+ a_1t+ a_0)\\
+               &=(\alpha \beta )p(t)
+\end{align*}
+e dessa forma, (ME1) é válida. Por outro lado,
+\begin{align*}
+(\alpha+\beta) p(t)&=(\alpha+\beta) (a_2t^2+a_1t+a_0)\\
+               &=(\alpha+\beta)a_2t^2+(\alpha+\beta) a_1t+(\alpha+\beta) a_0\\
+              &= \alpha a_2t^2+ \alpha a_1t+\alpha a_0  +\beta a_2t^2+\beta a_1t+\beta a_0\\
+               &= \alpha (a_2t^2+  a_1t+ a_0 )+\beta (a_2t^2+ a_1t+ a_0)\\
+               &=\alpha p(t)+ \beta p(t),
+\end{align*}
+e assim, (M2) é válida. Para mostrar que (ME3) também é válida, fazemos:
+\begin{align*}
+\alpha(p(t)+q(t))&=\alpha((a_2+b_2)t^2+(a_1+b_1)t+(a_0+b_0))\\
+               &=(\alpha a_2+\alpha b_2)t^2+(\alpha a_1+\alpha b_1)t+(\alpha a_0+\alpha b_0)\\
+               &=\alpha a_2 t^2 + \alpha a_1t+ \alpha a_0 + \alpha b_2t^2+\alpha b_1t+ \alpha b_0\\
+               &=\alpha ( a_2 t^2 + a_1t+ a_0 )+ \alpha ( b_2t^2+ b_1t+ b_0)\\
+               &=\alpha q(t)+\alpha p(t).
+\end{align*}
+
+Finalmente,
+\begin{align*}
+1 \cdot p(t)&=1 \cdot (a_2t^2+a_1t+ a_0)\\
+                  &=1 \cdot a_2t^2+ 1\cdot a_1t+ 1 \cdot a_0\\
+                 &= a_2t^2+  a_1t+  a_0\\
+                 &=p(t)
+\end{align*}
+para todo $p(t) \in \mathbb{P}_2(t)$. Logo, a propriedade $(ME4)$ também  é válida e, portanto, mostramos que $\mathbb{P}_2(t)$ é um espaço vetorial real.
+\item \textbf{Espaço Vetorial de Funções.} Dados números reais  $a$ e $b$  com $a < b$, considere  o intervalo da reta  $\mathbb{X}=[a,b]$ (ou seja, $\mathbb{X}$ é um subconjunto de $\mathbb{R}$).  Denotemos por  $\mathbb{F}(\mathbb{X}, \mathbb{R})$ o  conjunto formado por todas as  funções reais com domínio $\mathbb{X}$ e imagens real.  Isto é, o  conjunto formado por todas as funções
+$$f: \mathbb{X} \rightarrow \mathbb{R}. $$  Considerando em $\mathbb{F}(\mathbb{X}, \mathbb{R})$  as operações de soma de funções e multiplicação de função  por escalar, como   definidas a seguir:
+
+$$(f+g)(x)=f(x)+g(x) \; \; \text{e} \;\; (\alpha g)(x)=\alpha g(x), $$
+
+então $\mathbb{F}(\mathbb{X}, \mathbb{R})$ é um espaço vetorial real.
+
+\textbf{\textit{Demonstração.}} Sejam $f$, $g$ e $h$ funções definidas em $\mathbb{X}$.  Como para todo $ x \in \mathbb{X}$, temos $$f(x)+g(x)=g(x)+f(x)$$ pois $f(x)$  e $g(x)$ sao números reais, então  temos $$(f+g)(x)=f(x)+g(x)=g(x)+f(x)=(g+f)(x),$$ para todo $ x \in \mathbb{X}$. Logo, $f+g=g+f$. Isto é, a soma de funções é \textbf{comutativa}.
+
+De modo análogo,$$[f+(g+h)](x)=f(x)+(g+h)(x)=f(x)+g(x)+h(x)=(f+g)(x)+h(x)=[(f+g)+h](x),$$   para todo $ x \in \mathbb{X}$. Logo, $f+(g+h)=(f+g)+h$, e assim,  a soma de funções é \textbf{associativa}.
+
+Existe a função $f: \mathbb{X} \rightarrow \mathbb{R}$,  tal que,  $f(x)=0$ para todo   $ x \in \mathbb{X}$. Trata-se da função \textit{nula}, que será denotada por $\theta$. Assim, para todo  $ x \in \mathbb{X}$ e para toda $f \in  \mathbb{F}(\mathbb{X}, \mathbb{R})$  temos $$ (\theta+f)(x)
+=\theta(x)+f(x)=0+f(x)=f(x).$$ Ou seja, existe a função $\theta(x) \in \mathbb{F}(\mathbb{X}, \mathbb{R})$   tal que $$\theta + f=f$$ para toda $ f \in \mathbb{F}(\mathbb{X}, \mathbb{R})$. A função nula é o \textbf{ elemento neutro} desta operação.
+
+Para cada função $f: \mathbb{X} \rightarrow \mathbb{R}$ dada, a função $-f: \mathbb{X} \rightarrow \mathbb{R}$, que transforma cada $ x \in \mathbb{X}$ em  $-f(x)$ é tal que
+$$[f+(-f)](x)=f(x)+(-f(x))=0=\theta(x).$$  Logo, dada função $f \in \mathbb{F}(\mathbb{X}, \mathbb{R})$, existe a função $ -f \in  \mathbb{F}(\mathbb{X}, \mathbb{R})$ tal que $f+(-f)=\theta$.  Isto é, a função $-f$ é o \textbf{elemento simétrico} da soma de funções.
+
+Agora sejam $\alpha,\beta \in \mathbb{R}$ e $f, g \in \mathbb{F}(\mathbb{X}, \mathbb{R})$.
+
+$\alpha(\beta f)(x)=\alpha(\beta  f(x))=(\alpha\beta )f(x)$ para todo $ x \in \mathbb{X}$.  Logo, $$ \alpha(\beta  f)=(\alpha \beta )f.$$
+
+$((\alpha+\beta )f)(x)=(\alpha+\beta )f(x)=\alpha f(x)+\beta f(x)=(\alpha f+\beta f)(x)$ para todo $ x \in \mathbb{X}$. Logo, $$ (\alpha+\beta)  f=\alpha f + \beta f.$$
+
+
+$(\alpha(f+g))(x)=\alpha(f+g)(x)=\alpha (f(x)+g(x))=\alpha f(x)+\alpha g(x)=(\alpha f+\alpha g)(x)$  para todo $ x \in \mathbb{X}$. Logo, $$ \alpha ( f+g)=\alpha f + \alpha g.$$
+
+Finalmente, $1\cdot f(x)= f(x)$ para todo $ x \in \mathbb{X}$. Logo, $$ 1 \cdot f= f.$$
+
+Dessa forma, as operações de soma de funções e multiplicação por escalar satisfazem as oitos propriedades da definição, e portanto, $\in \mathbb{F}(\mathbb{X}, \mathbb{R})$ é um espaço vetorial sobre $\mathbb{R}$.
+
+\item \textbf{Espaço Vetorial das Soluções de um Sistema Linear Homogêneo.} O conjunto $\{ (x_1, x_2, ..., x_n), x_i \in \mathbb{R}\}$ das soluções de um sistema linear homogêneo
+ \begin{equation} \left\{
+\begin{tabular}{lllllllllll}
+$a_{11}x_1$ &+& $a_{12}x_2$ &+&\dots&+&$a_{1n}x_n$& $=$ & $0$ \\
+$a_{21}x_1$ &+& $a_{22}x_2$ &+&\dots&+&$a_{2n}x_n$&$=$ & $0$ \\
+.&&&&&&&& \\ .&&&&&&&& \\ .&&&&&&&& \\
+
+$a_{m1}x_1$ &+& $a_{m2}x_2$ &+&\dots&+&$a_{mn}x_n$ &$=$ & $0$ \\
+\end{tabular},  \right.\label{sist2}
+\end{equation}
+também é um espaço vetorial.
+
+\end{enumerate}
+
+\section{Exercícios Propostos}
+
+\begin{enumerate}
+
+\item  Seja $V$  o espaço vetorial  $\mathbb{R}^n$. Qual é o vetor nulo de$V$? O que representa o vetor $ – (x_1, x_2,...,x_n$)?
+
+\item  Seja $W=\mathbb{M}(2,2)$. Descreva o vetor nulo e vetor oposto em $W$.
+
+\item Descreva o vetor nulo e o vetor oposto em $\mathbb{P}_2(t)=\{a_2t^2+a_1t+a_0,\; \;\text{com}\; \;  a_i  \in \mathbb{R}\}$.
+
+\item Mostre que o conjunto $V=\{ (x,y); x, y \in \mathbb{R} \; \; \text{e} \; \; xy> 0\}$ com as operações $$ (a,b) \oplus + (c,d)= (ac, bd) \;\; \text{e} \;\; \alpha \otimes (a,b)=(a^{\alpha}, b^{\alpha})$$ é  um espaço vetorial real.
+
+\item  Mostre que o conjunto $V=\{ (1,y);  y \in \mathbb{R}\}$ com as operações $$ (1,y_1) + (1,y_2)= (1, y_1+y_2) \;\; \text{e} \;\; \alpha  (1,y)=(1, {\alpha}y)$$ é  um espaço vetorial real.
+
+
+
+\item Seja o conjunto $\mathbb{R}^2=\{(x, y); x, y  \in \mathbb{R}\}$. Mostre que $\mathbb{R}^2$ não é um espaço vetorial com as operações assim definidas:
+$$ (x,y) + (z,w)= (x+z, y+w) \;\; \text{e} \;\; \alpha  (x,y)=({\alpha}x, y).$$
+
+\item  Mostre a seguinte afirmação: Em um espaço vetorial $V$ existe um único vetor nulo e cada elemento de$V$ possui um único inverso.
+
+\item Mostre que os exemplos 4 e 7 são de fato espaços vetoriais sobre $\mathbb{R}$.
+
+
+
+
+\end{enumerate}

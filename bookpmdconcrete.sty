@@ -1,0 +1,392 @@
+\ProvidesPackage{bookpemd}[2013/04/18 (UNIVASF) - Programa de Elaboração de Material Didático (PEMD)]
+% Calculo I
+% bookpemd.sty
+
+% <> PACKAGES  <>
+% <><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\inputencoding{utf8}
+
+\usepackage{float}
+\usepackage{units}
+%\usepackage{amsthm, amsmath, amssymb, thmtools} % math symbols, tools, ...
+%\usepackage{picinpar} % allows "windows" to be typesed inside paragraphs
+
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\let\leftbar\relax
+\let\endleftbar\relax
+
+\usepackage[bodystyle=,nothm]{thmbox}
+\usepackage{memfonts}
+\thmboxoptions{headstyle=\normalfont\sffamily\bfseries#1 #2}
+%\let\leftbar\relax
+%\let\endleftbar\relax
+%\usepackage{thmbox}
+% solve conflicts!!!! see in http://tex.stackexchange.com/questions/43835/conflict-between-amsthm-and-some-other-package
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}
+\usetikzlibrary[arrows]
+
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{multicol}
+
+% improve tables
+\usepackage{booktabs}
+
+\makeatletter
+% <> PAGE LAYOUT  <>
+
+% <> HEADER AND FOOTER  <>
+\pagestyle{ruled} % estilo com linha
+\makeevenfoot{ruled}{}{}{}
+\makeoddfoot{ruled}{}{}{}
+\makeevenhead{ruled}{{\textsf{\textbf{\thepage}}}}{}{\sffamily\leftmark} % {ruled}{left}{center}{right}\tiny\today}~-~
+\makeoddhead{ruled}{{\sffamily\rightmark}}{}{{\textsf{\textbf{\thepage}}}} % {ruled}{left}{center}{right}
+
+
+%\usepackage{layouts}
+\usepackage{geometry}
+\geometry{a4paper,nofoot,nomarginpar,tmargin=25mm,bmargin=20mm,lmargin=20mm,rmargin=15mm,
+%showframe
+}
+
+%\geometry{bindingoffset=1cm, paperwidth=6in, paperheight=9in, top=.9in, bottom=.6667in, outer=.6668in}
+%\setstocksize{297mm}{210mm}
+%\settrimmedsize{9in}{6in}{*}
+%\settypeblocksize{\textwidth}{11cm}{*}
+%\checkthelayout
+
+%\settrimmedsize{9in}{6in}{*}
+%\setlength{\trimtop}{0pt}
+%\setlength{\trimedge}{\stockwidth}
+%\addtolength{\trimedge}{-\paperwidth}
+%\settypeblocksize{634pt}{448.13pt}{*}
+%\setulmargins{4cm}{*}{*}
+%\setlrmargins{*}{*}{1.5}
+%\setmarginnotes{17pt}{51pt}{\onelineskip}
+%\setheadfoot{\onelineskip}{2\onelineskip}
+%\setheaderspaces{*}{2\onelineskip}{*}
+%\checkandfixthelayout
+
+
+% <> NOVOS AMBIENTES   <> (Definição dos ambientes: exemplo, exercício, teorema, ...)
+
+\mdfdefinestyle{shadetextmdf}{%
+backgroundcolor=gray!30,
+innerleftmargin=10,%
+innerrightmargin=10,%
+%outerlinewidth=3pt,%
+rightline=false,%
+leftline=false,
+topline=false,%
+bottomline=false,%
+skipabove=\topsep,skipbelow=\topsep
+}
+
+\usepackage{memfonts}
+\declaretheoremstyle[
+	headfont=\normalfont\sffamily\bfseries,
+	notefont=\normalfont\sffamily\bfseries ,
+	notebraces={(}{)},
+	headpunct={},
+	headformat={\NAME\ \NUMBER\ \NOTE\ignorespaces},
+	postheadspace={.5em},
+	bodyfont=\normalfont,
+	preheadhook={\begin{mdframed}[style=shadetextmdf]},
+	postfoothook=\end{mdframed},
+%	prefoothook={\hfill\qedsymbol}
+]{shadetext}
+
+\declaretheoremstyle[
+%	spaceabove=10pt, spacebelow=6pt,
+	headfont=\normalfont\sffamily\bfseries,
+	notefont=\normalfont\sffamily\bfseries,
+	notebraces={(}{)},
+	headpunct={},
+	headformat={\NAME\ \NUMBER\ \NOTE\ignorespaces},
+	postheadspace={.5em},
+	bodyfont=\normalfont,
+	thmbox=M,
+%	preheadhook=\noindent,
+%	postfoothook=\end{flushleft},
+]{exemplostyle}
+
+\declaretheorem[name=Exemplo,
+	style=exemplostyle,
+	numberwithin=section,
+]{exemplo}
+
+\declaretheorem[name=Definição,
+	style=shadetext,
+	numberwithin=section]{defn}
+
+\usepackage{memfonts}
+
+\declaretheoremstyle[
+	spaceabove=12pt, spacebelow=6pt,
+	headfont=\normalfont\sffamily\bfseries,
+	notefont=\normalfont\sffamily\bfseries,
+	notebraces={(}{)},
+	headpunct={},
+	headformat={\NAME\ \NUMBER\ \NOTE\ignorespaces},
+	bodyfont=\itshape,
+	postheadspace={.5em}
+]{teoremastyle}
+
+\declaretheoremstyle[
+	headfont=\normalfont\sffamily\bfseries,%
+	headpunct={},%
+	headformat={\NUMBER\ \NOTE\ignorespaces},%
+]{stylexca}
+
+\declaretheorem[name=Exercício,%
+	style=stylexca,%
+	numberwithin=section]{xca}
+
+\declaretheorem[name=Observação,numberwithin=section,style=remark]{rem}
+
+%\theoremstyle{definition}
+% \newtheorem{xca}{\protect\exercisename}[section]
+
+\usepackage{babel}
+%  \providecommand{\exercisename}{Exercício}
+%  \theoremstyle{plain}
+%  \newtheorem{prop}[section]{\normalfont\sffamily\bfseries Proposição}
+
+\declaretheorem[style=plain,
+name=\normalfont\sffamily\bfseries Proposição,numberwithin=section]{prop}
+
+\declaretheorem[
+style=teoremastyle,
+name=\normalfont\sffamily\bfseries Teorema,numberwithin=section]{thm}
+\normalfont
+
+% <> NEW COMMANDS <>
+
+% Definição função escada
+\usepackage{stmaryrd} % for simbol \llfloor and \rrfloor
+\newcommand{\fescada}[1]{\llfloor#1\rrfloor} % função maior inteiro
+
+% Comando para limites: default lim x->#2 #3
+\newcommand{\limitex}[3][x]{\ensuremath{\displaystyle\lim_{#1\to #2}#3}}
+
+% Comandos para exercícios específicos
+\newcommand{\exercicioT}[3]{
+\begin{tabular}{p{3.5cm}p{1.5cm}p{10cm}}
+#1 & #2 & #3\end{tabular}}
+
+\newcommand{\exercicioTdois}[2]{
+\begin{tabular}{p{3.15cm}p{1.2cm}}
+{#1}&{#2}
+\end{tabular}}
+
+\newcommand{\exersidebyside}[4]{
+\begin{tabular}{p{#1 cm}p{#2 cm}}
+{#3}&{#4}
+\end{tabular}}
+
+\newcommand{\deff}[5]{%
+\begin{align*}#1\colon #2 &\longrightarrow #3\\#4 &\longmapsto  #5%
+\end{align*}}
+
+\newcommand{\defunc}[3]{\ensuremath{#1\colon\! #2\!\longrightarrow\! #3}}
+
+\def\virg{\text{, }\!}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% comando para colocar qualquer coisa lado a lado
+\newcommand{\lado}[5]{%
+\parbox{#1\textwidth}{#4}\hspace{#3}
+\begin{minipage}{#2\textwidth}
+#5\end{minipage}}
+
+\newcommand{\hrulesolucao}{\noindent\rule{4cm}{1pt}}
+
+\newcommand{\inr}[2][R]{\ensuremath{#2\in\mathbb{#1}}}
+
+\newcommand{\dx}[2][x]{\dfrac{d}{d#1}\!#2}
+\newcommand{\dxl}[3][x]{\left.\dfrac{d}{d{#1}}\!{#2}\right|_{#3}}
+
+\DeclareMathOperator{\seno}{sen}
+\renewcommand{\sin}{\seno}
+\DeclareMathOperator{\tangente}{tg}
+\renewcommand{\tan}{\tangente}
+\DeclareMathOperator{\cossec}{cossec}
+\renewcommand{\csc}{\cossec}
+\DeclareMathOperator{\cotg}{cotg}
+\renewcommand{\cot}{\cotg}
+\DeclareMathOperator{\arcseno}{arcsen}
+\renewcommand{\arcsin}{\arcseno}
+\DeclareMathOperator{\arctg}{arctg}
+\renewcommand{\arctan}{\arctg}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{cossech}
+\DeclareMathOperator{\senh}{senh}
+\renewcommand{\sinh}{\senh}
+\DeclareMathOperator{\tgh}{tgh}
+\renewcommand{\tanh}{\tgh}
+\DeclareMathOperator{\cotgh}{cotgh}
+\renewcommand{\coth}{\cotgh}
+\DeclareMathOperator{\cossech}{cossech}
+\renewcommand{\csch}{\cossech}
+%\DeclareMathOperator{}{}
+%\renewcommand{}{}
+
+
+% <> HYPERREF  <>
+
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=true,linkcolor=blue]
+ {hyperref}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\makeatother
+
+\input{chapterstyles/blackbox.tex}
+%\input{chapterstyles/hansen.tex}
+%\input{chapterstyles/vz43.tex}
+
+% <> FONT  <>
+%\usepackage{concmath}
+\usepackage{eulervm} % Para ambiente matemático
+\renewcommand{\rmdefault}{cmr} % Computer Modern
+\renewcommand{\familydefault}{\rmdefault}%
+%\usepackage{microtype}
+
+
+%\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{amsmath,amssymb}
+
+%%%%%% SEÇÃO PARA EXERCÍCIOS %%%%%%%%%%%%
+\usepackage{memfonts}
+%\newenvironment{secaoexercicio}{%
+%\section*{\thesection~Exercícios}
+%\noindent
+%\\
+%\textbf{\Large\sffamily\bfseries\thesection~Exercícios}\\
+%\rule{\textwidth}{1mm}}{%
+%\noindent
+%\rule{\textwidth}{1mm}
+%}
+\newenvironment{secaoexercicio}{%\section*{\thesection~Exercícios}
+\section{Exercícios}
+\noindent%\textbf{\Large\sffamily\bfseries\thesection~Exercícios}\\
+\rule[1cm]{\textwidth}{1mm}\\[-1.5cm]}{%
+\par\noindent\rule[1cm]{\textwidth}{1mm}\\[-1.5cm]
+}
+
+\newenvironment{secaocomplementar}{%\section*{\thesection~Exercícios}
+\section{Exercícios Complementares}
+\noindent%\textbf{\Large\sffamily\bfseries\thesection~Exercícios}\\
+\rule[1cm]{\textwidth}{1mm}\\[-1.5cm]}{%
+\noindent
+\rule{\textwidth}{1mm}\\[-.5cm]
+}
+\normalfont
+
+\newenvironment{colexercicio}[1]{
+\begin{multicols}{#1}
+\begin{enumerate}[(a)]}{
+\end{enumerate}
+\end{multicols}}
+% <> CONTRA CAPA <>
+
+\newcommand{\contracapa}[4]{
+	\newpage
+	\thispagestyle{empty}
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{\baselineskip}
+	~\vfill
+	\sffamily
+%	\begin{flushleft}
+	\resizebox{6cm}{!}{#1}\\[-40pt]
+%	\end{flushleft}
+	\begin{flushright}
+		\resizebox{17.5cm}{!}{\textbf{#2}} \\~\\
+		\resizebox{3cm}{!}{#3} \\~\\~\\~\\
+		\resizebox{8cm}{!}{\textbf{#4}}
+	\end{flushright}
+	~\vfill
+}
+
+% <> COPYRIGHT <>
+\newcommand{\copyr}{
+	\newpage
+	%~\vfill
+	\thispagestyle{empty}
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{\baselineskip}
+
+	Copyright \copyright\ \the\year\
+
+	Publicado por Fundação Universidade Federal do Vale do São Francisco (Univasf)
+
+	www.univasf.edu.br
+
+ Todos os direitos reservados. Nenhuma parte desta publicação poderá ser reproduzida ou transmitida de qualquer modo ou por qualquer outro meio, eletrônico ou mecânico  incluindo fotocopia, gravação ou qualquer outro tipo de sistema de armazenamento e transmissão de informação, sem previa autorização, por escrito dos autores.
+
+ Editoração Eletrônica: \textit{Pedro Henrique Araújo Sobral e Thiago Bonfim.}\\
+ Este livro foi produzido com \fmtname, versão~\fmtversion.
+
+	\textit{Primeira impressão, abril de 2013.}\\
+%	\textit{Versão: \today{\time} }
+	%\newpage
+}
+
+% <> FICHA CATALOGRAFICA <>
+
+\newcommand{\fichacat}{
+	%\newpage
+	~\vfill
+	\thispagestyle{empty}
+	%\setlength{\parindent}{0pt}
+	%\setlength{\parskip}{\baselineskip}
+	%\begin{table}[H]
+		%\begin{center}
+			\begin{tabular}{|l l l|}
+				\hline
+				R938v&& \\
+				&Fábio Henrique de Carvalho& \\
+%				&Damião Silva; Edson Leite Araújo; Fábio Henrique Carvalho& \\
+				&Juazeiro, Univasf. 2013& \\
+				&Inclui bibliografia& \\
+				&ISBN 658-62-6235-254-0& \\
+				&1. Calculo Diferencial e Integral. 2. Algebra Linear.& \\
+				&3. Calculo Numerico. 4. Geometria Analitica.& \\
+				&&04-0357. \\
+				\hline
+			\end{tabular}
+			\label{tab-f}
+		%\end{center}
+	%\end{table}
+	\newpage
+}
+
+
+%%%%%%%%%%%%%%% INDEX
+\newcommand\Index[1]{#1\index{#1}}
+\newcommand\Indexit[1]{\textit{#1}\index{#1@\textit{1}}}
+\newcommand\Indexbf[1]{\textbf{#1}\index{#1@\textbf{1}}}
+
+\numberwithin{equation}{section}
+
+
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{cancel}
+
+\endinput
